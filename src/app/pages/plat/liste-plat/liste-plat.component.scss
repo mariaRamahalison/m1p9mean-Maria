@@ -1,0 +1,28 @@
+.menu-title-wrapper h5 {
+    font-size: 1rem;
+}
+
+#menu-3 .menu-item-desc p {
+    color: #757575;
+}
+
+.imagePlat {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    -moz-transform: translate(-50%, -50%) scale(1);
+    -ms-transform: translate(-50%, -50%) scale(1);
+    -o-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.menu-item-img {
+    position: relative;
+    /* padding: 0 0 0 0; 
+    /* margin-bottom: 30px; */
+    min-height: 80px;
+    text-align: center;
+}
