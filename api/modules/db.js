@@ -22,7 +22,7 @@
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var url = 'mongodb://127.0.0.1:27017/Ekalyyyyy';
+var url = 'mongodb://127.0.0.1:27017/Ekaly';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Get the default connection

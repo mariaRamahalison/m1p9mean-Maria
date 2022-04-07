@@ -6,9 +6,12 @@
 const { default: mongoose } = require('mongoose');
 var db = require('../modules/db');
 // var mongoose = require('mongoose');
-const UserService=requires('../services/UserService');
+// const UserService=requires('../services/UserService');
+
 
 module.exports = {
+    
+
     login: (req, res) => res.json({token: 'TOKEN', ...req.body, key: process.env.KEY}),
     findAll: (req, res) => res.json(blabla)
 }

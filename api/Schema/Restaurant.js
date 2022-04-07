@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-
-const Restaurant = new Schema({
+const RestaurantSchema = new Schema({
     nom: {
         type:String,
         required: [true, "Veuillez entrer un nom"],
@@ -24,4 +23,6 @@ const Restaurant = new Schema({
     status:{type: String , default:"ACTIVE"}
 });
 
-module.exports={Restaurant};
+
+var Restaurant = mongoose.model('Restaurant', RestaurantSchema);
+module.exports={Restaurant, RestaurantSchema};

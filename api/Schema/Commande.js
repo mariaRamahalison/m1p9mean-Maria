@@ -1,16 +1,14 @@
 import mongoose from 'mongoose';
+import { totalmem } from 'os';
 const { Schema } = mongoose;
 
 const Commande= new Schema({
     dateCreate:{
         type:Date, default:Date.now
     },
-    dateUpdate:{
-        type:Date, default:Date.now
-    },
     adresse:{
         type:String,
-        required:[true,"Veuillez entrerune adresse"]
+        required:[true,"Veuillez entrer une adresse"]
     },
     fraisLivraison:{
         type: Number
@@ -19,7 +17,11 @@ const Commande= new Schema({
         type:String, default:"EN COURS"
     },
     client:User,
-    Plat:Plat,
+    plats:{
+        Plat:Plat,
+        restaurant:id
+        total: total
+    ,}
     benefice:{
         type:Number,
         default:10
