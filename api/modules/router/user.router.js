@@ -1,10 +1,10 @@
-const { login, findAll } = require('../../../controller/user.controller')
+// const { login, findAll } = require('../../../controller/user.controller')
 // var mongoose = require('mongoose');
-const UserService = require('../../../services/UserService');
-var child = require('../../../Schema/Child');
-var parent = require('../../../Schema/Parent');
-var jwtHelper = require('../../../Helper/jwtHelper');
-var resultHelper = require('../../../Helper/resultHepler');
+const UserService = require('../../services/UserService');
+var child = require('../../Schema/Child');
+var parent = require('../../Schema/Parent');
+var jwtHelper = require('../../Helper/jwtHelper');
+var resultHelper = require('../../Helper/resultHepler');
 
 
 const UserRouter = (url, app) => {
