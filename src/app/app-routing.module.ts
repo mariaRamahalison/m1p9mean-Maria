@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { LoginComponent } from './pages/login/login.component';
+import { PanierComponent } from './pages/panier/panier.component';
 // import { FormulaireCategorieComponent } from './pages/plat/formulaire-categorie/formulaire-categorie.component';
 import { FormulairePlatComponent } from './pages/plat/formulaire-plat/formulaire-plat.component';
 import { FormulaireComponent } from './pages/plat/formulaire/formulaire.component';
@@ -70,6 +71,11 @@ export const routes: Routes = [
           path: 'formulaire',
           component: FormulaireComponent,
           data : {title : 'formulaire'}
+        },
+        {
+          path: 'panier',
+          component: PanierComponent,
+          data : {title : 'panier'}
         }
         // {
         //   path: 'mesactions',

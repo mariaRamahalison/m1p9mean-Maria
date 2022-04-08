@@ -1,0 +1,129 @@
+<div id="page" class="page">
+
+
+
+
+    <!-- PAGE HERO
+    ============================================= -->	
+    <div id="cart-page" class="page-hero-section division">
+        <div class="container">	
+            <div class="row">	
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="hero-txt text-center white-color">
+
+                        <!-- Title -->
+                        <h2 class="h2-xl">Panier</h2>
+
+                    </div>
+                </div>	
+            </div>	  <!-- End row -->
+        </div>	   <!-- End container --> 
+    </div>	<!-- END PAGE HERO -->	
+
+
+
+
+    <!-- CART PAGE
+    ============================================= -->
+    <section id="cart-1" class="wide-100 cart-page division">
+        <div class="container">
+
+
+            <!-- CART TABLE -->	
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cart-table mb-70">
+                        <table id="myTable">
+                            <thead>
+                                <tr>
+                                      <th scope="col">Nom</th>
+                                      <th scope="col">Prix</th>
+                                      <th scope="col">Quantité</th>
+                                      <th scope="col">Total</th>
+                                      <th scope="col">Supprimer</th>
+                                </tr>
+                             </thead>
+
+                            <tbody>
+
+                                <!-- CART ITEM #1 -->
+                                <tr *ngFor="let plat of commande.plats">
+                                      <td data-label="Product" class="product-name">
+
+                                          <!-- Preview -->
+                                        <div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview"></div>
+
+                                        <!-- Description -->
+                                        <div class="cart-product-desc">
+                                              <h5 class="h5-sm">{{plat.nom}}</h5>
+                                              <p class="p-sm">{{plat.composition}}</p>
+                                          </div>
+
+                                      </td>
+
+                                      <td data-label="Price" class="product-price"><h5 class="h5-md">{{plat.prixVente}}</h5></td>
+                                      <td data-label="Quantity" class="product-qty">
+                                          <input class="qty" type="number" min="1" max="20" (click)="onQuantite(plat)" [(ngModel)]="plat.quantite">
+                                      </td>
+                                      <td data-label="Total" class="product-price-total"><h5 class="h5-md">{{plat.montant}}</h5></td>
+                                      <td data-label="Delete" class="td-trash"><i (click)="annulerCommande(plat)" class="far fa-trash-alt"></i></td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>	<!-- END CART TABLE -->
+
+
+            <!-- CART CHECKOUT -->		
+            <div class="row">
+                <div class="col-lg-8"></div>
+
+
+                <!-- CHECKOUT -->
+                <div class="col-lg-4">
+                    <div class="cart-checkout bg-lightgrey">
+
+                        <!-- Title -->
+                        <h5 class="h5-lg">Cart Total</h5>
+
+                        <!-- Table -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                      <td>Total montant</td>
+                                      <td> </td>
+                                      <td class="text-right">{{commande.total}}</td>
+                                </tr>
+                                <tr class="last-tr">
+                                      <td>Frais de livraison</td>
+                                      <td> </td>
+                                      <td class="text-right">{{commande.fraisLivraison}}</td>
+                                </tr>
+                                <tr class="last-tr">
+                                    <td>Total</td>
+                                    <td> </td>
+                                    <td class="text-right">{{total}}</td>
+                              </tr>
+                              </tbody>
+                        </table>
+
+                        <!-- Button -->
+                        <a href="#" class="btn btn-md btn-salmon tra-salmon-hover">Commander</a>
+
+                    </div>
+                </div>	<!-- END CHECKOUT -->
+
+
+            </div>	  <!-- END CART CHECKOUT -->
+
+
+        </div>	   <!-- End container --> 
+    </section>	<!-- END CART PAGE -->	
+
+
+
+</div>	<!-- END PAGE CONTENT -->

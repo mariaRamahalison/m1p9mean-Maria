@@ -1,3 +1,5 @@
+
+import { commandeI } from "../dto/commandeI";
 export const APIUSER = {
     inscription: '/api/user/inscription',
     login: '/user/login'
@@ -15,15 +17,17 @@ export const APIPLAT = {
     update: '/api/plat/update'
 }
 
-export const COMMANDE = {
-    idRestau: "",
-    plats: [] 
-};
+export let COMMANDE : commandeI
 
 export const LOCALSTORAGE = {
     user: '',
-    token: ''
+    token
+    : ''
 };
+
+export const FRAISLIVRAISON= 50
+
+
 
 
 
