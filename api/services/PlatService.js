@@ -8,16 +8,36 @@ async function create(idRestau, item) {
     return await RestaurantModel
         .findOneAndUpdate(
             { _id: idRestau },
-            { $push: { plats: item } }
+            { $push: { plats: item } },
+            { new: true }
         );
 }
 
 async function update(item) {
     return await RestaurantModel
-        .findOneAndUpdate({ 'plats._id': item._id },
+        .findOneAndUpdate(
+            { 'plats._id': item._id },
             { "$set": { "plats.$": item } },
+            { new: true }
         );
 }
+
+async function find(query) {
+    return await RestaurantModel.find(query).exec();
+}
+
+async function filtre(item) {
+    return find({
+        _id:item._id,
+        $or:[{ "plats.nom": { $regex: item.filtre} },{ "plats.composition": { $regex: item.filtre} }]
+    });
+}
+
+// async function findBy(item) {
+//     console.log(item);
+//     return await find({ nom: { $regex: item.filtre} } , { nom: { $regex: item.filtre } });
+// }
+
 
 async function supprimer(id) {
     return await PlatModel
@@ -38,6 +58,6 @@ module.exports = {
     create,
     update,
     supprimer,
-    // findRestau,
+    filtre,
     disable
 }

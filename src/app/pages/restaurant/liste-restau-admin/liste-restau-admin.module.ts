@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListeRestaurantComponent } from '../restaurant/liste-restaurant/liste-restaurant.component';
 import { BrowserModule } from '@angular/platform-browser';
+// import { RestauCommunModule } from '../restau-commun/restau-commun.module';
+
+
 
 @NgModule({
-  declarations: [ListeRestaurantComponent],
+  declarations: [ListeRestauAdminModule],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ]
 })
-export class LoginModule { }
+export class ListeRestauAdminModule { }

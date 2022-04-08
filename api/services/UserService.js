@@ -29,7 +29,6 @@ async function inscription(us) {
 
 async function login(log) {
     log.mdp=await jwtHelper.encryptPassword(log.mdp);
-    console.log(log.mdp);
     return await find({ "email": log.email , "mdp": log.mdp });
 }
 

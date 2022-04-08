@@ -4,26 +4,32 @@ const Restaurant = require('../Schema/Restaurant');
 RestaurantModel = Restaurant.Restaurant;
 
 
-function verifyName(resto){
-    return userBool =find({ nom: resto.nom })
-    .then(result => {
-        if(result.length==0) return true;
-        return false;
-    })
-    .catch(error => { throw error});
+function verifyName(resto) {
+    return userBool = find({ nom: resto.nom })
+        .then(result => {
+            if (result.length == 0) return true;
+            return false;
+        })
+        .catch(error => { throw error });
 }
 
 async function create(resto) {
-    if(await verifyName(resto)){
+    if (await verifyName(resto)) {
         return await new RestaurantModel(resto).save();
-    }else{
+    } else {
         throw new Error("Restaurant déja existant");
     }
 }
 
+
+// Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, (err, doc) => {
+//     if (err) {
+//         console.log("Something wrong when updating data!");
+//     }
+
 async function update(item) {
     return await RestaurantModel
-        .findOneAndUpdate(item._id, item, { new: true })
+        .findOneAndUpdate({_id:item._id},item, { new: true })
         .exec();
 }
 
@@ -42,19 +48,26 @@ async function find(query) {
 }
 
 async function findById(id) {
-    return await find({_id:id})
+    return await find({ _id: id })
 }
 
 async function findAll() {
     return await RestaurantModel.find().exec();
 }
 
+async function findBy(item) {
+    console.log(item);
+    return await find({ nom: { $regex: item.filtre} } , { nom: { $regex: item.filtre } });
+}
 
-module.exports={
+
+module.exports = {
     create,
     update,
     supprimer,
     find,
     disable,
-    findAll
+    findAll,
+    findBy,
+    findById
 }

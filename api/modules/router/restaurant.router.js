@@ -4,9 +4,10 @@ var resultHelper = require('../../Helper/resultHepler');
 
 const RestaurantRouter = (url, app) => {
 
-    app.get(url+"/all", (req, res) => {
-        RestaurantService.findAll()
-            .then(restos => {
+    app.post(url+"/filtre", (req, res) => {
+    //    console.log(req.body);
+        RestaurantService.findBy(req.body)
+            .then(restos => {        
                     resultHelper.succes(res, restos,"")
             })
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
@@ -35,7 +36,7 @@ const RestaurantRouter = (url, app) => {
         resto = req.body;
         RestaurantService.update(resto)
             .then(resto => {
-                    resultHelper.succes(res,{},"Restaurant modifié avec succès")
+                    resultHelper.succes(res,resto,"Restaurant modifié avec succès")
             })
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });

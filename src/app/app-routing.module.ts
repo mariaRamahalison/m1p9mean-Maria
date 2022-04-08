@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormulaireCategorieComponent } from './pages/plat/formulaire-categorie/formulaire-categorie.component';
+// import { FormulaireCategorieComponent } from './pages/plat/formulaire-categorie/formulaire-categorie.component';
 import { FormulairePlatComponent } from './pages/plat/formulaire-plat/formulaire-plat.component';
 import { FormulaireComponent } from './pages/plat/formulaire/formulaire.component';
+import { ListePlatAdminComponent } from './pages/plat/liste-plat-admin/liste-plat-admin.component';
 import { ListePlatComponent } from './pages/plat/liste-plat/liste-plat.component';
+import { ListeRestauAdminComponent } from './pages/restaurant/liste-restau-admin/liste-restau-admin.component';
 import { ListeRestaurantComponent } from './pages/restaurant/liste-restaurant/liste-restaurant.component';
 // import { MenuComponent } from './containers/menu/menu.component';
 
@@ -41,18 +43,23 @@ export const routes: Routes = [
         // },
         {
           path: 'restaurants',
-          component: ListeRestaurantComponent,
+          component: ListeRestauAdminComponent,
           data : {title : 'liste des restaurants'}
+        },
+        // {
+        //   path: 'restaurants',
+        //   component: ListeRestaurantComponent,
+        //   data : {title : 'liste des restaurants'}
+        // },
+        {
+          path: 'platAdmin',
+          component: ListePlatAdminComponent,
+          data : {title : 'liste des plats'}
         },
         {
           path: 'plats',
           component: ListePlatComponent,
           data : {title : 'liste des plats'}
-        },
-        {
-          path: 'formulaire-categorie',
-          component: FormulaireCategorieComponent,
-          data : {title : 'formulaire catégories de plat'}
         },
         {
           path: 'formulaire-plat',

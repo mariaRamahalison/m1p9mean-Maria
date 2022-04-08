@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MenuComponent } from '../menu/menu.component';
-
+import { AlertModalComponent } from '../alert-modal/alert-modal.component';
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [AlertModalComponent],
   imports: [
-    CommonModule
   ],
-  exports:[MenuComponent]
+  exports:[AlertModalComponent]
 })
+
 export class CommunModule { }

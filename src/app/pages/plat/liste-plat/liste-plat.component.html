@@ -22,148 +22,14 @@
             <div class="row g-5 masonry">   
                     <div class="col-lg-12 col-md-12 item">
                         <h3>Appetizers</h3>
-                        <div class="post-menu">
+                        <div *ngFor="let plat of listPlat" class="post-menu">
                             <img src="../../assets/stradale/02_images-restaurant/menu/appetizers/1.jpg" class="img-responsive" alt="">
                             <div class="sub-item-service meta">
-                                <div class="c1"><h4>Fried Mozzarella</h4></div>
+                                <div class="c1"><h4>{{plat.nom}}</h4></div>
                                 <div class="c2"></div>
-                                <div class="c3">$6.95 <button>Ajouter </button></div>
+                                <div class="c3">{{plat.prixVente}}Ar <span data-label="Delete" class="td-trash" (click)="commander(plat)"><i class="fa fa-plus" ></i></span></div>
                                </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/appetizers/2.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Chicken Fingers</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/appetizers/3.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Fried Calamari</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/appetizers/4.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Calamari Marinara</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/appetizers/5.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Antipasto Salad</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 item">
-                        <h3>Pasta</h3>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pasta/1.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Spaghetti</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pasta/2.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Lasagna</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pasta/3.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Baked Ziti</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pasta/4.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Cheese Ravioli</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pasta/5.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Luinguini</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 item">
-                        <h3>Pizza</h3>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pizza/1.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Meat Lovers</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pizza/2.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Hawaian Pizza</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pizza/3.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>White Pizza</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pizza/4.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Margherita Pizza</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
-                        </div>
-                        <div class="post-menu">
-                            <img src="../../assets/stradale/02_images-restaurant/menu/pizza/5.jpg" class="img-responsive" alt="">
-                            <div class="sub-item-service meta">
-                                <div class="c1"><h4>Lasagna Pizza</h4></div>
-                                <div class="c2"></div>
-                                <div class="c3">$6.95<button type="button" class="btn rounded-pill btn-outline-danger">Danger</button></div>
-                               </div>
-                            <div class="menu-desc meta-content">Qui qui amet voluptate dolor dolor in in magna eu esse ut et ut dolor elit non qui et excepteur fugiat veniam ex do sed.</div>
+                            <div class="menu-desc meta-content">{{plat.composition}}</div>
                         </div>
                     </div>
                 </div>
@@ -171,3 +37,5 @@
     </section>
 
 </div>
+
+<app-alert-modal></app-alert-modal>

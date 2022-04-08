@@ -4,7 +4,6 @@ import { FooterComponent } from '../footer/footer.component';
 import { MenuComponent } from '../menu/menu.component';
 
 
-
 @NgModule({
   declarations: [FooterComponent,MenuComponent],
   imports: [

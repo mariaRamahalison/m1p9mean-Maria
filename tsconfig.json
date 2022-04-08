@@ -21,13 +21,15 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "noImplicitAny": false
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    // "enableI18nLegacyMessageIdFormat": false,
+    // "strictInjectionParameters": true,
+    // "strictInputAccessModifiers": true,
+    // "strictTemplates": true,
+    // "noImplicitAny": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "index.js", "dist", "api", "public"]

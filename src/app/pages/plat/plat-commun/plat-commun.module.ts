@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormulaireCategorieComponent } from '../formulaire-categorie/formulaire-categorie.component';
+// import { FormulaireCategorieComponent } from '../formulaire-categorie/formulaire-categorie.component';
 import { FormulairePlatComponent } from '../formulaire-plat/formulaire-plat.component';
 
 
 
 @NgModule({
-  declarations: [FormulaireCategorieComponent, FormulairePlatComponent],
+  declarations: [ FormulairePlatComponent],
   imports: [
     CommonModule
   ],
-  exports: [FormulaireCategorieComponent, FormulairePlatComponent]
+  exports: [ FormulairePlatComponent]
 })
 export class PlatCommunModule { }

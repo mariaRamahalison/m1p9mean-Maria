@@ -13,4 +13,4 @@ async function main() {
   CommandeRouter('/api/commande', app);
 }
 
-module.exports = { main, app, db };
+module.exports = { app, main,  db };

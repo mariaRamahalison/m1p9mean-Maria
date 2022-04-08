@@ -14,8 +14,11 @@
                     <form [formGroup]="inscriptionForm" name="bookinkform" class="row booking-form">
                       <!-- Form Input -->
                       <div class="col-lg-6">
-                          <input type="text" name="name" formControlName="nom" class="form-control name" placeholder="Nom * " required> 
+                          <input type="text" name="nom" formControlName="nom" class="form-control name" placeholder="Nom * " required> 
                       </div>
+                      <div class="col-lg-6">
+                        <input type="text" name="prenom" formControlName="prenom" class="form-control name" placeholder="Prenom * " required> 
+                    </div>
                       <div class="col-lg-6">
                         <input type="text" name="mdp" formControlName="mdp" class="form-control name" placeholder="mdp * " required> 
                     </div>
@@ -31,7 +34,8 @@
                                                   
                       <!-- Form Button -->
                       <div class="col-md-12 mt-10">  
-                          <button type="submit" class="btn btn-md btn-red tra-red-hover submit">Valider</button> 
+                          <!-- <button type="submit" class="btn-main wow fadeInUp" data-wow-delay="1.1s">Valider</button>  -->
+                          <a class="btn-main wow fadeInUp buttonInscription" data-wow-delay="1.1s" (click)="inscription()">Valider</a>
                       </div>
                                                                               
                   </form>	<!-- End Form -->	

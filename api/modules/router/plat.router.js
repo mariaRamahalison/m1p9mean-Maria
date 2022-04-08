@@ -18,7 +18,7 @@ const PlatRouter = (url, app) => {
         plat = req.body;
         PlatService.update(plat)
             .then(plat => {
-                    resultHelper.succes(res,{},"Plat modifié avec succès")
+                    resultHelper.succes(res,plat,"Plat modifié avec succès")
             })
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
@@ -32,8 +32,8 @@ const PlatRouter = (url, app) => {
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
 
-    app.get(url+"/all", (req, res) => {
-        PlatService.findAll()
+    app.post(url+"/filtre", (req, res) => {
+        PlatService.filtre(req.body)
             .then(plats => {
                     resultHelper.succes(res, plats,"")
             })

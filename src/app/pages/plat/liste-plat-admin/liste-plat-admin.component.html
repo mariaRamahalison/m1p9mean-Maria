@@ -1,0 +1,148 @@
+<!-- <div class="no-bottom no-top" id="content">
+    <div id="top"></div> -->
+    
+    <!-- section begin -->
+    <section id="subheader" class="text-light jarallax">
+        <img class="jarallax-img" src="../../assets/stradale/02_images-restaurant/background/3.jpg" alt="" />
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>PLAT</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="cart-1" class="wide-100 cart-page division">
+    <div class="container">
+
+            <!-- CART CHECKOUT -->		
+            <div class="row">
+
+                <!-- DISCOUNT COUPON -->
+                <div class="col-lg-8">
+                    <div class="discount-coupon row pt-15">
+    
+                        <!-- Form -->
+                        
+                        <div class="col-md-12 col-lg-12 btnAction">				
+                            <span class="input-group-btn">
+                               <button type="button" class="btn btn-primary" (click)="createModal()">
+                                    <i class="fa fa-plus" ></i>
+                                </button>	
+                            </span>	
+                            
+                        </div>
+    
+    
+                        <!-- Button -->
+                        <!-- <div class="col-md-4 col-lg-5 text-right">
+                            <a onClick="window.location.reload()" class="btn btn-md btn-salmon tra-salmon-hover">Update Cart</a>
+                        </div> -->
+    
+                    </div>
+                </div>
+    
+    
+            </div>	  <!-- END CART CHECKOUT -->
+    
+    
+
+        <!-- CART TABLE -->	
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-table mb-70">
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                  <th scope="col">Nom</th>
+                                  <th scope="col">prixVente</th>
+                                  <th scope="col">prixAchat</th>
+                                  <th scope="col">status</th>
+                            </tr>
+                         </thead>
+
+                        <tbody>
+
+                            <!-- CART ITEM #1 -->
+                            <tr *ngFor="let plat of listPlat" >
+                                  <td data-label="Product" class="product-name">
+
+                                      <!-- Preview -->
+                                    <div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview"></div>
+
+                                    <!-- Description -->
+                                    <div class="cart-product-desc">
+                                          <h5 class="h5-sm">{{plat.nom}}</h5>
+                                          <p class="p-sm">{{plat.composition}}</p>
+                                      </div>
+
+                                  </td>
+
+                                  <td data-label="Price" class="product-price"><h5 class="h5-md">{{plat.prixVente}}</h5></td>
+                                  <td data-label="Price" class="product-price"><h5 class="h5-md">{{plat.prixAchat}}</h5></td>
+                                  <td data-label="Quantity" class="product-qty">
+                                      {{plat.status}}
+                                  </td>
+                                  <td data-label="Delete" class="td-trash"><i class="far fa-trash-alt"></i></td>
+                                  <td data-label="Delete" class="td-trash" (click)="updateModal(plat)"><i  class="fa fa-pencil"></i></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>	<!-- END CART TABLE -->
+
+
+    
+    </div>	   <!-- End container --> 
+</section>	<!-- END CART PAGE -->	
+
+
+<div class="col-md-4 mb60">
+
+
+    Modal
+    <div class="modal fade" id="scrollableModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scrollableModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-holder">
+                <form  [formGroup]="platForm" name="platForm" class="row booking-form">
+                            
+                    <div class="col-lg-12">
+                        <input type="text" name="nom"  formControlName="nom" class="form-control name" placeholder="Nom*" required> 
+                    </div>
+
+                    <div class="col-lg-12">
+                        <input type="text" name="composition"  formControlName="composition"  class="form-control name" placeholder="composition séparés par une virgule*" required> 
+                    </div>
+                            
+                    <div class="col-lg-12">
+                        <input type="number" name="prixAchat" formControlName="prixAchat"  class="form-control name" placeholder="prixAchat*" required> 
+                    </div>
+                    <div class="col-lg-12">
+                        <input type="number" name="prixVente" formControlName="prixVente"  class="form-control name" placeholder="prixVente*" required> 
+                    </div>
+
+                    <div class="col-md-12 mt-10">  
+                        <p  *ngIf="action==='CREER'"  class="btn btn-md btn-red" (click)="create()">Valider</p>
+                        <p  *ngIf="action==='MODIFIER'"  class="btn btn-md btn-red  "(click)="update()">Modifier</p> 
+                    </div>
+
+                </form>	
+            </div>	
+        </div>
+        </div>
+      </div>
+    </div>      
+    
+    
+</div>
+<app-alert-modal></app-alert-modal>
