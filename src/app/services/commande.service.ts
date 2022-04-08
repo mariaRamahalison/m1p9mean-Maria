@@ -13,18 +13,18 @@ export class CommandeService {
     private dataServ: DataService) { }
 
 
-  onChange(commande) {
-    this.total(commande);
-    this.saveLocalCommande(commande);
+  onChange(commande : any) {
+    this.total(commande );
+    this.saveLocalCommande(commande );
   }
 
-  total(commande) {
+  total(commande : any) {
     return commande.total = commande.plats
-      .map(x => x.montant)
+      .map((x : any) => x.montant)
       .reduce((acc, cur) => acc + cur, 0);
   }
 
-  saveLocalCommande(commande) {
+  saveLocalCommande(commande : any) {
     this.storageService.setlocalStorage("COMMANDE", commande);
   }
 

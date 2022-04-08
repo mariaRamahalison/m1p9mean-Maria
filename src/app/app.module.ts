@@ -39,7 +39,7 @@ const APP_CONTAINERS = [
     ListeRestauAdminComponent,
     ListePlatAdminComponent,
     ListePlatComponent,
-    // CommandeAdminComponent,
+    CommandeAdminComponent
   ],
   imports: [
     CommonModule,

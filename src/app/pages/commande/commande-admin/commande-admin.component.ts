@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommandeService } from 'src/app/services/commande.service';
 // import { CommandeService } from 'src/app/services/commande.service';
 
 @Component({
@@ -7,21 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./commande-admin.component.scss']
 })
 export class CommandeAdminComponent implements OnInit {
-  
-  filtre= {restau:"", status: "", filtre: ""};
+
+  filtre = { restau: "", status: "", filtre: "" };
+  listCommande: any = [];
   constructor(
-    // private commandeService= CommandeService
+    private commandeService: CommandeService
   ) { }
 
   ngOnInit(): void {
   }
 
-  getData(){
-    // this.commandeService.filtrer(filtre)
-    // .subscribe(
-    //   res=>{},
-    //   error=>{}
-    // )
+  getData() {
+    this.commandeService.filtrer(this.filtre)
+      .subscribe(
+        res => { 
+          res.data.forEach(element => {
+            this.listCommande.push(element);
+          });
+        },
+        error => { }
+      )
   }
 
 }

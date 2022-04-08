@@ -6,7 +6,8 @@ async function find(query) {
 }
 
 async function create(us) {
-    return await new User.User(us).save();
+    return await new User.User(us).sa
+    ve();
 }
 
 function verifyEmail(us){
