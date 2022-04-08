@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
 import { FRAISLIVRAISON } from 'src/app/common/constante';
+import { commandeI } from 'src/app/dto/commandeI';
 import { CommandeService } from 'src/app/services/commande.service';
 import { StorageService } from 'src/app/services/Helper/storage.service';
 import { PlatService } from 'src/app/services/plat.service';
@@ -20,7 +21,9 @@ export class ListePlatComponent implements OnInit {
     private commandeService: CommandeService
   ) { }
 
-  idRestau = "624f3634ceb1024ec16c7e8a";
+
+  idRestau = "625035bc390e82c7941eae4b";
+  commande = { restaurant: this.idRestau, plats: [], total: 0, fraisLivraison: FRAISLIVRAISON };
   filtre = { filtre: "", _id: this.idRestau };
   listPlat: any = [];
 
@@ -30,19 +33,14 @@ export class ListePlatComponent implements OnInit {
   }
 
   initlocal() {
+    this.storageService.setlocalStorage("COMMANDE", this.commande);
 
-    let objCommande = (this.storageService.getLocalStorage("COMMANDE"));
-    if (objCommande.idRestau != this.idRestau && objCommande.plats.length > 0) {
-      // "pop up ";
-    }
   }
-
 
   commander(item: any) {
     let objCommande = (this.storageService.getLocalStorage("COMMANDE"));
-    if ((objCommande.plats.filter(element => element._id === item._id)).length == 0) {
-      item.quantite=1;
-      objCommande.plats.push(item);
+    if ((objCommande.plats.filter(element => element.plat._id === item._id)).length == 0) {
+      objCommande.plats.push({ plat: item, quantite: 1, montant: 0 });
       this.commandeService.saveLocalCommande(objCommande);
       this.alertModal?.open("Succès", "Plat ajouter avec succès");
     } else {

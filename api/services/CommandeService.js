@@ -17,17 +17,23 @@ async function supprimer() {
         .deleteOne({ _id: id });
 }
 
-// async function disable(item) {
-//     item.status = "INVALIDE";
-//     return await update(item);
-// }
-
-async function find(query) {
-    return await CommandeModel.fin(query).exec();
+async function filtrer(item) {
+    query = {
+        restaurant: item.restau,
+        $or: [{ "plats.nom": { $regex: item.filtre } }, { "plats.composition": { $regex: item.filtre } }]
+    }
+    if (item.status) {
+        query.status = item.status
+    }
+    return await find(query);
 }
 
+async function find(query) {
+    return await CommandeModel.find(query).exec();
+}
 
-module.exports={
+module.exports = {
+    filtrer,
     create,
     update,
     supprimer,

@@ -15,7 +15,7 @@ export class ListePlatAdminComponent implements OnInit {
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
   constructor(private platService: PlatService) { }
 
-  idRestau = "624f3634ceb1024ec16c7e8a";
+  idRestau = "625035bc390e82c7941eae4b";
   filtre = { filtre: "", _id: this.idRestau };
   listPlat: any = [];
   platForm!: FormGroup;

@@ -3,7 +3,6 @@ var resultHelper = require('../../Helper/resultHepler');
 
 
 const CommandeRouter = (url, app) => {
-
     app.post(url + "/create", (req, res) => {
         Commande = req.body
         CommandeService.create(Commande)
@@ -13,7 +12,7 @@ const CommandeRouter = (url, app) => {
             .catch(error => { resultHelper.error(res, error.message); });
     });
 
-    app.post("/update", (req, res) => {
+    app.post(url+"/update", (req, res) => {
         Commande = req.body;
         CommandeService.update(Commande)
             .then(Commande => {
@@ -22,7 +21,7 @@ const CommandeRouter = (url, app) => {
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
 
-    app.post("/delete", (req, res) => {
+    app.post(url+"/delete", (req, res) => {
         id= req.body;
         CommandeService.supprimer(id)
             .then(Commande => {
@@ -31,8 +30,8 @@ const CommandeRouter = (url, app) => {
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
 
-    app.get("/all", (req, res) => {
-        CommandeService.findAll()
+    app.post(url+"/filtre", (req, res) => {
+        CommandeService.filtrer(req.body)
             .then(Commandes => {
                     resultHelper.succes(res, Commandes,"")
             })

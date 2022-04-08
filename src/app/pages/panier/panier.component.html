@@ -47,7 +47,7 @@
                             <tbody>
 
                                 <!-- CART ITEM #1 -->
-                                <tr *ngFor="let plat of commande.plats">
+                                <tr *ngFor="let detail of commande.plats">
                                       <td data-label="Product" class="product-name">
 
                                           <!-- Preview -->
@@ -55,18 +55,18 @@
 
                                         <!-- Description -->
                                         <div class="cart-product-desc">
-                                              <h5 class="h5-sm">{{plat.nom}}</h5>
-                                              <p class="p-sm">{{plat.composition}}</p>
+                                              <h5 class="h5-sm">{{detail.plat.nom}}</h5>
+                                              <p class="p-sm">{{detail.plat.composition}}</p>
                                           </div>
 
                                       </td>
 
-                                      <td data-label="Price" class="product-price"><h5 class="h5-md">{{plat.prixVente}}</h5></td>
+                                      <td data-label="Price" class="product-price"><h5 class="h5-md">{{detail.plat.prixVente}}</h5></td>
                                       <td data-label="Quantity" class="product-qty">
-                                          <input class="qty" type="number" min="1" max="20" (click)="onQuantite(plat)" [(ngModel)]="plat.quantite">
+                                          <input class="qty" type="number" min="1" max="20" (click)="onQuantite(detail)" [(ngModel)]="detail.quantite">
                                       </td>
-                                      <td data-label="Total" class="product-price-total"><h5 class="h5-md">{{plat.montant}}</h5></td>
-                                      <td data-label="Delete" class="td-trash"><i (click)="annulerCommande(plat)" class="far fa-trash-alt"></i></td>
+                                      <td data-label="Total" class="product-price-total"><h5 class="h5-md">{{detail.montant}}</h5></td>
+                                      <td data-label="Delete" class="td-trash"><i (click)="annulerCommande(detail)" class="far fa-trash-alt"></i></td>
 
                                 </tr>
 
@@ -80,7 +80,23 @@
 
             <!-- CART CHECKOUT -->		
             <div class="row">
-                <div class="col-lg-8"></div>
+                <!-- DISCOUNT COUPON -->
+						<div class="col-lg-8">
+							<div class="discount-coupon row pt-15">
+
+								<!-- Form -->
+								<div class="col-md-8 col-lg-7">
+									
+								</div>
+
+
+								<!-- Button -->
+								<!-- <div class="col-md-4 col-lg-5 text-right">
+									<a onClick="window.location.reload()" class="btn btn-md btn-salmon tra-salmon-hover">Update Cart</a>
+								</div> -->
+
+							</div>
+						</div>
 
 
                 <!-- CHECKOUT -->
@@ -91,6 +107,7 @@
                         <h5 class="h5-lg">Cart Total</h5>
 
                         <!-- Table -->
+                        
                         <table>
                             <tbody>
                                 <tr>
@@ -108,11 +125,21 @@
                                     <td> </td>
                                     <td class="text-right">{{total}}</td>
                               </tr>
+                              <tr class="last-tr">
+                                <td colspan="3">
+                                    <form  [formGroup]="comForm" class="discount-form">
+                                                    
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"  formControlName="adresse" placeholder="Entrer une adresse" id="discount-code">																	 
+                                        </div>		
+                                    </form>	
+                                </td>
+                               </tr>
                               </tbody>
                         </table>
 
                         <!-- Button -->
-                        <a href="#" class="btn btn-md btn-salmon tra-salmon-hover">Commander</a>
+                        <a href="#" class="btn btn-md btn-salmon tra-salmon-hover"(click)="commander()">Commander</a>
 
                     </div>
                 </div>	<!-- END CHECKOUT -->
@@ -120,10 +147,11 @@
 
             </div>	  <!-- END CART CHECKOUT -->
 
-
+            
         </div>	   <!-- End container --> 
     </section>	<!-- END CART PAGE -->	
 
 
 
 </div>	<!-- END PAGE CONTENT -->
+<app-alert-modal></app-alert-modal>

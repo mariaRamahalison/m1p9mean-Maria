@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { APICOM } from '../common/constante';
+import { DataService } from './data.service';
 import { StorageService } from './Helper/storage.service';
 
 @Injectable({
@@ -6,7 +8,9 @@ import { StorageService } from './Helper/storage.service';
 })
 export class CommandeService {
 
-  constructor(private storageService: StorageService) { }
+  constructor(
+    private storageService: StorageService,
+    private dataServ: DataService) { }
 
 
   onChange(commande) {
@@ -22,6 +26,16 @@ export class CommandeService {
 
   saveLocalCommande(commande) {
     this.storageService.setlocalStorage("COMMANDE", commande);
+  }
+
+  create(data: any) {
+    const res = this.dataServ.postData(APICOM.create,data);
+    return res;
+  }
+
+  filtrer(data: any){
+    const res = this.dataServ.postData(APICOM.create,data);
+    return res;
   }
 
 }

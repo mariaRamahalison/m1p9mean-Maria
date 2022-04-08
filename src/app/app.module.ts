@@ -7,7 +7,6 @@ import { DefaultLayoutComponent } from './containers/default-layout/default-layo
 import { FooterComponent } from './containers/footer/footer.component';
 import { MenuComponent } from './containers/menu/menu.component';
 import { FormulairePlatComponent } from './pages/plat/formulaire-plat/formulaire-plat.component';
-// import { FormulaireCategorieComponent } from './pages/plat/formulaire-categorie/formulaire-categorie.component';
 import { FormulaireComponent } from './pages/plat/formulaire/formulaire.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -17,11 +16,10 @@ import { CommonModule } from '@angular/common';
 import { ListeRestaurantComponent } from './pages/restaurant/liste-restaurant/liste-restaurant.component';
 import { ListeRestauAdminComponent } from './pages/restaurant/liste-restau-admin/liste-restau-admin.component';
 import { ListePlatAdminComponent } from './pages/plat/liste-plat-admin/liste-plat-admin.component';
-import { ListePlatModule } from './pages/plat/liste-plat/liste-plat.module';
 import { ListePlatComponent } from './pages/plat/liste-plat/liste-plat.component';
-// import { AlertModalComponent } from './common/alert-modal/alert-modal.component';
 import { CommunModule } from './common/commun/commun.module';
-// import { FormulaireRestauComponent } from './pages/restaurant/formulaire-restau/formulaire-restau.component';
+import { CommandeAdminComponent } from './pages/commande/commande-admin/commande-admin.component';
+
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -41,8 +39,7 @@ const APP_CONTAINERS = [
     ListeRestauAdminComponent,
     ListePlatAdminComponent,
     ListePlatComponent,
-    // AlertModalComponent
-    // FormulaireRestauComponent
+    // CommandeAdminComponent,
   ],
   imports: [
     CommonModule,

@@ -9,7 +9,7 @@ const CommandeSchema = new Schema({
     },
     plats: [{
         plat: { type: Plat.PlatSchema, required: true },
-        qty: { type: Number, required: true },
+        quantite: { type: Number, required: true },
         montant: { type: Number }
     }],
     restaurant: { type: String, required: true },

@@ -9,7 +9,9 @@ export class StorageService {
   constructor() { }
 
   getLocalStorage(key ){
+    console.log(key);
     var object = localStorage.getItem(key);
+    console.log(object);
     if(object) return JSON.parse(object);
     return null;
   }

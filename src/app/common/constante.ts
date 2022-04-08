@@ -17,6 +17,13 @@ export const APIPLAT = {
     update: '/api/plat/update'
 }
 
+export const APICOM = {
+    // filtre: '/api/plat/filtre',
+    create: '/api/commande/create'
+    // update: '/api/plat/update'
+}
+
+
 export let COMMANDE : commandeI
 
 export const LOCALSTORAGE = {
