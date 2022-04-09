@@ -13,6 +13,7 @@ declare var $: any;
 export class ListeRestauAdminComponent implements OnInit {
 
   filtre = { filtre: "" };
+  inscriptionForm="RESTAURANT";
   action="CREER";
   listRestau: any = [];
   restauForm!: FormGroup  ;
@@ -43,6 +44,9 @@ export class ListeRestauAdminComponent implements OnInit {
     this.initForm();
   }
 
+  inscriptionModal(){
+    $("#inscriptionModal").modal('show');
+  }
   createModal() {
     this.initForm();
     this.action="CREER";
@@ -78,7 +82,6 @@ export class ListeRestauAdminComponent implements OnInit {
         this.alertModal?.open("Succès","Restaurant ajouter avec succès");
       },
       error => {
-        console.log(error);
         this.alertModal?.open("Error",error.error.message);
       }
     )
@@ -92,8 +95,7 @@ export class ListeRestauAdminComponent implements OnInit {
         res.data.forEach((element: any) => {
           this.listRestau.push(element);
         });
-        console.log(this.listRestau);
-      },
+       },
       error => {
 
       }

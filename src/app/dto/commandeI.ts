@@ -1,11 +1,13 @@
 export interface commandeI { 
-    restaurant: string, 
     plats: { 
         plat:{_id: string, nom: string, composition: string, prixVente: number, prixAchat: number, status: string},
         quantite: number, 
         montant: number 
     }[] ,
-    total:number,
-    fraisLivraison:number,
+    restaurant: string,
+    client : {},
     adresse:string
+    livreur:{},
+    fraisLivraison:number,
+    total:number,
 };

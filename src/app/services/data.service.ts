@@ -23,8 +23,6 @@ export class DataService {
   };
 
   postData(url: string, dataObject: any): Observable<any> {
-    console.log(env_URL.concat(url));
-    console.log(this.httpOptions);
     return this.http.post(env_URL.concat(url), dataObject, this.httpOptions).pipe(retry(1));
   }
 

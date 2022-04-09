@@ -29,10 +29,14 @@
                         <div class="col-md-12 col-lg-12 btnAction">				
                             <span class="input-group-btn">
                                <button type="button" class="btn btn-primary" (click)="createModal()">
-                                    <i class="fa fa-plus" ></i>
+                                    <i class="fa fa-plus" ></i> Restaurant
                                 </button>	
                             </span>	
-                            
+                            <span class="input-group-btn margeButton">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scrollingLongContent">
+                                <i class="fa fa-plus" ></i> Admin
+                              </button>
+                            </span>	
                         </div>
     
     
@@ -75,22 +79,18 @@
 
                                     <!-- Description -->
                                     <div class="cart-product-desc">
-                                          <h5 class="h5-sm">{{restau.nom}}</h5>
+                                          <b>{{restau.nom}}</b>
                                           <p class="p-sm">{{restau.tags}}</p>
                                       </div>
 
                                   </td>
 
-                                  <td data-label="Price" class="product-price"><h5 class="h5-md">{{restau.adresse}}</h5></td>
+                                  <td data-label="Price" class="product-price"><span>{{restau.adresse}}</span></td>
                                   <td data-label="Quantity" class="product-qty">
-                                      <!-- <input class="qty" type="number" min="1" max="20" value="1"> -->
                                       {{restau.status}}
                                   </td><td data-label="Delete" class="td-trash"><i class="far fa-trash-alt"></i></td>
                                   <td data-label="Delete" class="td-trash" (click)="updateModal(restau)"><i  class="fa fa-pencil"></i></td>
-                                  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scrollableModal">
-                                    <i class="fa fa-plus" ></i> -->
-                                <!-- </button>	 -->
-                            </tr>
+                           </tr>
                         </tbody>
 
                     </table>
@@ -105,7 +105,6 @@
 
 
 <div class="col-md-4 mb60">
-
 
     <!-- Modal -->
     <div class="modal fade" id="scrollableModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
@@ -154,5 +153,31 @@
     </div>      
 
 </div>
+
+<div class="col-md-4 mb60">
+    <!-- Modal -->
+    <div class="modal fade" id="scrollingLongContent" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollingLongContentLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scrollingLongContentLabel">Inscription admin restaurant</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <app-formulaire-inscription [action]="inscriptionForm"></app-formulaire-inscription>
+          </div>
+        </div>
+      </div>
+    </div>                          
+    
+</div>
+
+
+<!-- <div class="col-md-4 mb60">
+
+
+         
+
+</div> -->
 
 <app-alert-modal></app-alert-modal>

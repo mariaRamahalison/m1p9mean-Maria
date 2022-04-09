@@ -5,8 +5,7 @@ var resultHelper = require('../../Helper/resultHepler');
 const RestaurantRouter = (url, app) => {
 
     app.post(url+"/filtre", (req, res) => {
-    //    console.log(req.body);
-        RestaurantService.findBy(req.body)
+    RestaurantService.findBy(req.body)
             .then(restos => {        
                     resultHelper.succes(res, restos,"")
             })

@@ -22,11 +22,6 @@ async function create(resto) {
 }
 
 
-// Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, (err, doc) => {
-//     if (err) {
-//         console.log("Something wrong when updating data!");
-//     }
-
 async function update(item) {
     return await RestaurantModel
         .findOneAndUpdate({_id:item._id},item, { new: true })
@@ -56,7 +51,6 @@ async function findAll() {
 }
 
 async function findBy(item) {
-    console.log(item);
     return await find({ nom: { $regex: item.filtre} } , { nom: { $regex: item.filtre } });
 }
 

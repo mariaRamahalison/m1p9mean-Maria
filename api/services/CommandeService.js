@@ -1,3 +1,4 @@
+const { query } = require('express');
 const Commande = require('../Schema/Commande');
 
 CommandeModel = Commande.Commande;
@@ -18,12 +19,14 @@ async function supprimer() {
 }
 
 async function filtrer(item) {
-    query = {
-        restaurant: item.restau,
-        $or: [{ "plats.nom": { $regex: item.filtre } }, { "plats.composition": { $regex: item.filtre } }]
+    let query = {
+        // $or: [{ "plats.nom": { $regex: item.filtre } }, { "plats.composition": { $regex: item.filtre } }]
+    };
+    if(item.restau){
+        query['restaurant.idRestau']=item.restau ;
     }
-    if (item.status) {
-        query.status = item.status
+    if(item.status){
+        query.status=item.status;
     }
     return await find(query);
 }

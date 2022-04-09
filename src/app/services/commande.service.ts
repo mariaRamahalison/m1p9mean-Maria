@@ -34,7 +34,7 @@ export class CommandeService {
   }
 
   filtrer(data: any){
-    const res = this.dataServ.postData(APICOM.create,data);
+    const res = this.dataServ.postData(APICOM.filtre,data);
     return res;
   }
 

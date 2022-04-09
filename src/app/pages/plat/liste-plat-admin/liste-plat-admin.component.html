@@ -28,8 +28,8 @@
                         
                         <div class="col-md-12 col-lg-12 btnAction">				
                             <span class="input-group-btn">
-                               <button type="button" class="btn btn-primary" (click)="createModal()">
-                                    <i class="fa fa-plus" ></i>
+                               <button type="button btnAction " class="btn btn-primary" (click)="createModal()">
+                                    <i class="fa fa-plus" ></i>PLAT
                                 </button>	
                             </span>	
                             
@@ -57,9 +57,9 @@
                         <thead>
                             <tr>
                                   <th scope="col">Nom</th>
-                                  <th scope="col">prixVente</th>
-                                  <th scope="col">prixAchat</th>
-                                  <th scope="col">status</th>
+                                  <th scope="col">Prix de vente</th>
+                                  <th scope="col">Prix d'achat</th>
+                                  <th scope="col">Status</th>
                             </tr>
                          </thead>
 
@@ -74,14 +74,14 @@
 
                                     <!-- Description -->
                                     <div class="cart-product-desc">
-                                          <h5 class="h5-sm">{{plat.nom}}</h5>
+                                          <b>{{plat.nom}}</b>
                                           <p class="p-sm">{{plat.composition}}</p>
                                       </div>
 
                                   </td>
 
-                                  <td data-label="Price" class="product-price"><h5 class="h5-md">{{plat.prixVente}}</h5></td>
-                                  <td data-label="Price" class="product-price"><h5 class="h5-md">{{plat.prixAchat}}</h5></td>
+                                  <td data-label="Price" class="product-price"><span>{{plat.prixVente}}</span></td>
+                                  <td data-label="Price" class="product-price"><span>{{plat.prixAchat}}</span></td>
                                   <td data-label="Quantity" class="product-qty">
                                       {{plat.status}}
                                   </td>
@@ -124,10 +124,10 @@
                     </div>
                             
                     <div class="col-lg-12">
-                        <input type="number" name="prixAchat" formControlName="prixAchat"  class="form-control name" placeholder="prixAchat*" required> 
+                        <input type="number" name="prixAchat" formControlName="prixAchat"  class="form-control name" placeholder="prix d'achat*" required> 
                     </div>
                     <div class="col-lg-12">
-                        <input type="number" name="prixVente" formControlName="prixVente"  class="form-control name" placeholder="prixVente*" required> 
+                        <input type="number" name="prixVente" formControlName="prixVente"  class="form-control name" placeholder="prix de vente*" required> 
                     </div>
 
                     <div class="col-md-12 mt-10">  

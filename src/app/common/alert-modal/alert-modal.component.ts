@@ -16,9 +16,7 @@ export class AlertModalComponent implements OnInit {
   }
 
   open(titre, text){
-    console.log("niditra");
     this.data={titre : titre, text : text};
-    console.log("eo");
     $("#alterModal").modal('show');
   }
 

@@ -33,11 +33,6 @@ async function filtre(item) {
     });
 }
 
-// async function findBy(item) {
-//     console.log(item);
-//     return await find({ nom: { $regex: item.filtre} } , { nom: { $regex: item.filtre } });
-// }
-
 
 async function supprimer(id) {
     return await PlatModel

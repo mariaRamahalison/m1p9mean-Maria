@@ -12,7 +12,7 @@
                     <div class="hero-txt text-center white-color">
 
                         <!-- Title -->
-                        <h2 class="h2-xl">Panier</h2>
+                        <h2 class="h2-xl">Panier </h2>
 
                     </div>
                 </div>	
@@ -25,7 +25,7 @@
 
     <!-- CART PAGE
     ============================================= -->
-    <section id="cart-1" class="wide-100 cart-page division">
+    <section *ngIf="commande!=null; else noCommande" id="cart-1" class="wide-100 cart-page division">
         <div class="container">
 
 
@@ -44,7 +44,7 @@
                                 </tr>
                              </thead>
 
-                            <tbody>
+                            <tbody >
 
                                 <!-- CART ITEM #1 -->
                                 <tr *ngFor="let detail of commande.plats">
@@ -109,7 +109,7 @@
                         <!-- Table -->
                         
                         <table>
-                            <tbody>
+                            <tbody >
                                 <tr>
                                       <td>Total montant</td>
                                       <td> </td>
@@ -150,8 +150,18 @@
             
         </div>	   <!-- End container --> 
     </section>	<!-- END CART PAGE -->	
-
-
+    <ng-template #noCommande>
+        <section id="cart-1" class="wide-100 cart-page division">
+            <div class="container">
+                <!-- CART TABLE -->	
+                <div class="row">
+                    <div class="col-md-12">
+                        AUCUNE COMMANDE EN COURS
+                    </div>
+                </div>
+            </div>
+        </section>	<!-- END CART PAGE -->	
+    </ng-template>
 
 </div>	<!-- END PAGE CONTENT -->
 <app-alert-modal></app-alert-modal>

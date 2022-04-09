@@ -1,1 +1,113 @@
-<p>commande-admin works!</p>
+<!-- <div class="no-bottom no-top" id="content">
+    <div id="top"></div> -->
+    
+    <!-- section begin -->
+    <section id="subheader" class="text-light jarallax">
+        <img class="jarallax-img" src="../../assets/stradale/02_images-restaurant/background/3.jpg" alt="" />
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>COMMANDE</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="cart-1" class="wide-100 cart-page division">
+    <div class="container">
+            <!-- CART CHECKOUT -->		
+            <div class="row margeStatus">
+                <!-- DISCOUNT COUPON -->
+                <div class="col-lg-8">
+                    <div class="discount-coupon row pt-15">
+                        <!-- Form -->
+                        <div class="col-md-2 col-lg-2 btnAction">		
+                            <h5>STATUS :</h5>		
+                        </div>
+                        <div class="col-md-3 col-lg-3 btnAction">	
+                            <select  class="form-control" [(ngModel)]="filtre.status">
+                                <option value="" >Tous</option>
+                                <option value="COMMANDE" >commandé</option>
+                                <option value="EN COURS" >En cours</option>
+                                <option value="TERMINE" >Terminé</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-lg-2 btnAction">	
+                            <a  class="btn btn-md btn-red" (click)="filtrer()">Valider</a>
+                        </div>
+                        <div class="col-md-5 col-lg-5 btnAction"></div>
+    
+    
+                        <!-- Button -->
+                        <!-- <div class="col-md-4 col-lg-5 text-right">
+                            <a onClick="window.location.reload()" class="btn btn-md btn-salmon tra-salmon-hover">Update Cart</a>
+                        </div> -->
+    
+                    </div>
+                </div>
+    
+    
+            </div>	  <!-- END CART CHECKOUT -->
+    
+    
+
+        <!-- CART TABLE -->	
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-table mb-70">
+                    <table id="myTable">
+                        <thead>
+                            <tr> 
+                                  <th scope="col">Status</th>
+                                  <th scope="col">Restaurant</th>
+                                  <th scope="col">Plat</th>
+                                  <th scope="col">Prix</th>
+                                  <th scope="col">Quantité</th>
+                                  <th scope="col">Montant</th>
+                                  <th scope="col">Client</th>
+                                  <th scope="col">Adresse</th>
+                                  <th scope="col">Frais de Livraison</th>
+                            </tr>
+                         </thead>
+
+                         <tbody *ngFor="let commande of listCommande" >
+
+                            <!-- CART ITEM #1 -->
+                                <tr *ngFor="let detail of commande.plats" >
+                                    <td data-label="Price" class="product-price">{{commande.status}}</td>
+                                    <td data-label="Price" class="product-price">{{commande.restaurant.nom}}</td> 
+                                    <td data-label="Product" class="product-name">
+                                      <div class="cart-product-desc">
+                                            <b>{{detail.plat.nom}}</b>
+                                            <p class="p-sm">{{detail.plat.composition}}</p>
+                                        </div> 
+                                    </td>
+                                    <td data-label="Price" class="product-price">{{detail.prix}}</td>
+                                    <td data-label="Price" class="product-price">{{detail.quantite}}</td>
+                                    <td data-label="Price" class="product-price">{{detail.montant}}</td>
+                                    <td data-label="Product" class="product-name">
+                                      <div class="cart-product-desc">
+                                        <b>{{commande.client.nom}}</b>
+                                            <p class="p-sm">{{commande.client.email}}</p>
+                                        </div>
+                                    </td>
+                                    <td data-label="Price" class="product-price">{{commande.adresse}}</td>
+                                    <td data-label="Price" class="product-price">{{commande.fraisLivraison}}</td>
+                                    <td data-label="Price" class="product-price">{{commande.livreur}}</td> 
+                                </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>	<!-- END CART TABLE -->
+
+
+    
+    </div>	   <!-- End container --> 
+</section>	<!-- END CART PAGE -->	
+
+
+
+<app-alert-modal></app-alert-modal>

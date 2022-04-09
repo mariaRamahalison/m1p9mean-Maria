@@ -14,7 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class PanierComponent implements OnInit {
 
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
-  commande !: commandeI;
+  commande;
   total = 0;
 
   comForm: FormGroup = new FormGroup({
@@ -36,14 +36,16 @@ export class PanierComponent implements OnInit {
 
   getData() {
     this.commande = this.storageService.getLocalStorage("COMMANDE");
-    this.commande.fraisLivraison = this.commande.fraisLivraison | FRAISLIVRAISON;
-    this.commande.plats = this.commande.plats
-      .map(x => {
-        x.montant = x.quantite * x.plat.prixVente;
-        return x;
-      });
-    this.commandeService.onChange(this.commande);
-    this.getTotal();
+    if (this.commande) {
+      this.commande.fraisLivraison = this.commande.fraisLivraison | FRAISLIVRAISON;
+      this.commande.plats = this.commande.plats
+        .map(x => {
+          x.montant = x.quantite * x.plat.prixVente;
+          return x;
+        });
+      this.commandeService.onChange(this.commande);
+      this.getTotal();
+    }
   }
 
   onQuantite(item) {
@@ -61,12 +63,15 @@ export class PanierComponent implements OnInit {
 
   commander() {
     if (this.comForm.valid) {
-      this.commande.adresse=(this.comForm.value).adresse;
+
+      this.commande.adresse = (this.comForm.value).adresse;
       this.commandeService.create(this.commande)
         .subscribe(
           res => {
             //pop up commande effectué avec succès 
             this.alertModal?.open("Succès", "Commande effectué avec succès");
+            this.storageService.setlocalStorage("COMMANDE", null);
+            this.getData();
           },
           error => {
             this.alertModal?.open("Error", "Error");

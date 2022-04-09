@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import * as moment from 'moment';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,35 +12,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class InscriptionComponent implements OnInit {
 
-  newUser: any;
-  constructor(private userService: UserService) { }
+  inscriptionForm="CLIENT";
 
+  constructor(
+   
+    ) { }
+
+  
   ngOnInit(): void {
+   
   }
 
-  public inscriptionForm: FormGroup = new FormGroup({
-    nom: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    prenom: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    mdp: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    adresse: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    numero: new FormControl('', [Validators.required, Validators.minLength(7)]),
-    email: new FormControl('', [Validators.required, Validators.minLength(4), Validators.email]),
-  })
-
-  inscription() {
-    // console.log("inscription");
-    // console.log(this.inscriptionForm.valid);
-    // console.log(this.inscriptionForm.value);
-    if (this.inscriptionForm.valid) {
-      this.userService.inscription(this.inscriptionForm.value).subscribe(
-        res=>{
-          //notification de succès 
-        },
-        error=>{
-          //notification d'erreur succès  ou message d'erreur 
-        }
-      )
-    }
+  ngOnChanges() {
   }
-
 }

@@ -81,8 +81,7 @@ export class ListePlatAdminComponent implements OnInit {
       res => {
         this.alertModal?.open("Succès", "Plat crée avec succès");
         this.listPlat = [];
-        console.log(res.data.plats);
-        res.data.plats.forEach((element: any) => {
+         res.data.plats.forEach((element: any) => {
           this.listPlat.push(element);
         });
       },
@@ -102,7 +101,6 @@ export class ListePlatAdminComponent implements OnInit {
             this.listPlat.push(element);
           });
         });
-        console.log(this.listPlat);
       },
       error => {
 

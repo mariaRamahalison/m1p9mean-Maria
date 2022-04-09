@@ -12,7 +12,13 @@ const CommandeSchema = new Schema({
         quantite: { type: Number, required: true },
         montant: { type: Number }
     }],
-    restaurant: { type: String, required: true },
+    restaurant: {
+        idRestau: { type: String, required: true },
+        nom: { type: String, required: true }
+    },
+    client: {
+        type: User.UserSchema
+    },
     adresse: {
         type: String,
         required: [true, "Veuillez entrer une adresse"]
@@ -21,7 +27,7 @@ const CommandeSchema = new Schema({
         type: User.UserSchema
     },
     fraisLivraison: {
-        type: Number , default:50
+        type: Number, default: 50
     },
     total: {
         type: Number

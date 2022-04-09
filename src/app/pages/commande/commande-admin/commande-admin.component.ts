@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommandeService } from 'src/app/services/commande.service';
+import { StorageService } from 'src/app/services/Helper/storage.service';
 // import { CommandeService } from 'src/app/services/commande.service';
 
 @Component({
@@ -9,19 +10,35 @@ import { CommandeService } from 'src/app/services/commande.service';
 })
 export class CommandeAdminComponent implements OnInit {
 
-  filtre = { restau: "", status: "", filtre: "" };
+
+  filtre = { restau: "", status: ""};
   listCommande: any = [];
+  user : any;
   constructor(
-    private commandeService: CommandeService
+    private commandeService: CommandeService,
+    private storageService : StorageService
   ) { }
 
   ngOnInit(): void {
+    this.getData();
   }
 
+  verifyCompte(){
+    this.user=(this.storageService.getLocalStorage("USER_DETAIL")).user;
+    if(this.user.restaurant){
+      this.filtre.restau=this.user.restaurant.idRestau;
+    }
+  }
+
+  filtrer(){
+    this.getData();
+  }
   getData() {
+    this.verifyCompte();
     this.commandeService.filtrer(this.filtre)
       .subscribe(
         res => { 
+          this.listCommande=[];
           res.data.forEach(element => {
             this.listCommande.push(element);
           });

@@ -19,6 +19,8 @@ import { ListePlatAdminComponent } from './pages/plat/liste-plat-admin/liste-pla
 import { ListePlatComponent } from './pages/plat/liste-plat/liste-plat.component';
 import { CommunModule } from './common/commun/commun.module';
 import { CommandeAdminComponent } from './pages/commande/commande-admin/commande-admin.component';
+import { CommunFormModule } from './common/commun-form/commun-form.module';
+import { LivreurComponent } from './pages/livreur/livreur.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -39,7 +41,8 @@ const APP_CONTAINERS = [
     ListeRestauAdminComponent,
     ListePlatAdminComponent,
     ListePlatComponent,
-    CommandeAdminComponent
+    CommandeAdminComponent,
+    LivreurComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,8 @@ const APP_CONTAINERS = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommunModule
+    CommunModule,
+    CommunFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,111 @@
+<!-- <div class="no-bottom no-top" id="content">
+    <div id="top"></div> -->
+    
+    <!-- section begin -->
+    <section id="subheader" class="text-light jarallax">
+        <img class="jarallax-img" src="../../assets/stradale/02_images-restaurant/background/3.jpg" alt="" />
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>PLAT</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="cart-1" class="wide-100 cart-page division">
+    <div class="container">
+
+            <!-- CART CHECKOUT -->		
+            <div class="row">
+
+                <!-- DISCOUNT COUPON -->
+                <div class="col-lg-8">
+                    <div class="discount-coupon row pt-15">
+    
+                        <!-- Form -->
+                        
+                        <div class="col-md-12 col-lg-12 btnAction">				
+                            <span class="input-group-btn margeButton">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scrollingLongContent">
+                                    <i class="fa fa-plus" ></i> Livreur
+                                  </button>
+                                </span>	
+                            
+                        </div>
+    
+    
+                        <!-- Button -->
+                        <!-- <div class="col-md-4 col-lg-5 text-right">
+                            <a onClick="window.location.reload()" class="btn btn-md btn-salmon tra-salmon-hover">Update Cart</a>
+                        </div> -->
+    
+                    </div>
+                </div>
+    
+    
+            </div>	  <!-- END CART CHECKOUT -->
+    
+              <!-- CART TABLE -->	
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-table mb-70">
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                  <th scope="col">Nom</th>
+                                  <th scope="col">Prenom</th>
+                                  <th scope="col">Adresse</th>
+                                  <th scope="col">Numero</th>
+                                  <th scope="col">Email</th>
+                            </tr>
+                         </thead>
+
+                        <tbody>
+
+                            <!-- CART ITEM #1 -->
+                            <tr *ngFor="let livreur of listLivreur" >
+                                <td data-label="Price" class="product-price"><span>{{livreur.nom}}</span></td>
+                                <td data-label="Price" class="product-price"><span>{{livreur.prenom}}</span></td>
+                                <td data-label="Price" class="product-price"><span>{{livreur.adresse}}</span></td>
+                                <td data-label="Price" class="product-price"><span>{{livreur.numero}}</span></td>
+                                <td data-label="Price" class="product-price"><span>{{livreur.email}}</span></td>
+                                <td data-label="Delete" class="td-trash"><i class="far fa-trash-alt"></i></td>
+                                <td data-label="Delete" class="td-trash" (click)="updateLivreur(livreur)"><i  class="fa fa-pencil"></i></td>
+                           </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>	<!-- END CART TABLE -->
+
+    
+
+
+
+
+    
+    </div>	   <!-- End container --> 
+</section>	<!-- END CART PAGE -->	
+
+<div class="col-md-4 mb60">
+    <!-- Modal -->
+    <div class="modal fade" id="scrollingLongContent" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollingLongContentLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-title" id="scrollingLongContentLabel">Ajout livreur</span>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <div class="modal-body">
+            <app-formulaire-inscription [action]="inscriptionForm" [user]="userAction"></app-formulaire-inscription>
+          </div>
+        </div>
+      </div>
+    </div>                          
+    
+</div>
+
+<app-alert-modal></app-alert-modal>

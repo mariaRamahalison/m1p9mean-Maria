@@ -3,17 +3,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommunModule } from 'src/app/common/commun/commun.module';
+import { ListeRestauAdminComponent } from './liste-restau-admin.component';
+import { CommunFormModule } from 'src/app/common/commun-form/commun-form.module';
 // import { RestauCommunModule } from '../restau-commun/restau-commun.module';
 
 
 @NgModule({
-  declarations: [ListeRestauAdminModule],
+  declarations: [ListeRestauAdminComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    CommunModule
-  ]
+    CommunModule,
+    CommunFormModule
+  ],
+  exports:[]
 })
 export class ListeRestauAdminModule { }

@@ -20,4 +20,9 @@ export class UserService {
     const res = this.dataServ.postData(APIUSER.login, data);
     return res;
   }
+
+  update(data : any) {
+    const res = this.dataServ.putData(APIUSER.update, data);
+    return res;
+  }
 }

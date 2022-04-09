@@ -19,7 +19,7 @@ const UserRouter = (url, app) => {
             .catch(error => { resultHelper.error(res, error.message); });
     });
 
-    app.post("/inscription", (req, res) => {
+    app.post("/user/inscription", (req, res) => {
         us = req.body;
         UserService.inscription(us)
             .then(user => {
@@ -29,6 +29,28 @@ const UserRouter = (url, app) => {
             })
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
+
+    app.get("/api/user/livreur/all", (req, res) => {
+        UserService.findLivreur()
+            .then(user => {
+                if (user) {
+                    resultHelper.succes(res,user,"")
+                }
+            })
+            .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
+    });
+
+    app.put("/api/user/update", (req, res) => {
+        UserService.update(req.body)
+            .then(user => {
+                if (user) {
+                    resultHelper.succes(res,user,"")
+                }
+            })
+            .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
+    });
+    
+
     
 
     // app.post(url + "/testAll", (req, res) => {

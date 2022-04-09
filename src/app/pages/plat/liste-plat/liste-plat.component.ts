@@ -23,7 +23,7 @@ export class ListePlatComponent implements OnInit {
 
 
   idRestau = "625035bc390e82c7941eae4b";
-  commande = { restaurant: this.idRestau, plats: [], total: 0, fraisLivraison: FRAISLIVRAISON };
+  commande;
   filtre = { filtre: "", _id: this.idRestau };
   listPlat: any = [];
 
@@ -33,7 +33,13 @@ export class ListePlatComponent implements OnInit {
   }
 
   initlocal() {
-    this.storageService.setlocalStorage("COMMANDE", this.commande);
+    this.commande = {
+      restaurant: { idRestau: this.idRestau, nom: "test" },
+      total: 0,
+      plats: [],
+      client: (this.storageService.getSessionStorage("USER_DETAIL")).user
+    };
+    this.storageService.setlocalStorage("COMMANDE", this.commande)
 
   }
 
@@ -57,7 +63,6 @@ export class ListePlatComponent implements OnInit {
             this.listPlat.push(element);
           });
         });
-        console.log(this.listPlat);
       },
       error => {
 

@@ -1,22 +1,3 @@
-// var mongodb = require("mongodb");
-// var ObjectID = mongodb.ObjectID;
-// var database;
-// const LOCAL_DATABASE = "mongodb://localhost:27017/app";
-
-// // Init the server
-// mongodb.MongoClient.connect(process.env.MONGODB_URI || LOCAL_DATABASE,
-//     {
-//         useUnifiedTopology: true,
-//         useNewUrlParser: true,
-//     }, function (error, client) {
-//         if (error) {
-//             console.log(error);
-//             process.exit(1);
-//         }
-//         database = client.db();
-//         console.log("Database connection done.");
-//     });
-// module.exports = { database, ObjectID };
 
 //Import the mongoose module
 var mongoose = require('mongoose');
