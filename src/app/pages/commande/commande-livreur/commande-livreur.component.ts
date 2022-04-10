@@ -36,8 +36,6 @@ export class CommandeLivreurComponent implements OnInit {
 
 
   handleClick(event: MouseEvent,plats){
-    console.log("merde");
-    console.log(plats);
     this.detailPlat=plats;
     $("#scrollableModal").modal('show');
   }
@@ -64,9 +62,8 @@ export class CommandeLivreurComponent implements OnInit {
     item.dateCreate = new Date().toString();
     this.commandeService.update(item).subscribe(
       res => {
-        console.log(res);
         this.deplace(event);
-        this.items[1].data[this.items[1].data.length - 1] = res;
+        this.items[1].data[this.items[1].data.length - 1] = res.data;
         this.alertModal?.open("Succès", "commande prise en charge avec succès");
       },
       error => {
@@ -81,7 +78,6 @@ export class CommandeLivreurComponent implements OnInit {
       item.dateCreate = new Date().toString()
       this.commandeService.update(item).subscribe(
         res => {
-          console.log(res);
           this.deplace(event);
           this.alertModal?.open("Succès", "commande terminé avec succès");
         },
@@ -113,7 +109,6 @@ export class CommandeLivreurComponent implements OnInit {
     this.items[0].data = this.filtreStatus("COMMANDE");
     this.items[1].data = this.filtreStatus("EN COURS");
     this.items[2].data = this.filtreStatus("TERMINE");
-    console.log(this.items);
   }
 
   getData() {
