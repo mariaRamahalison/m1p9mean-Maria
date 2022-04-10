@@ -1,0 +1,124 @@
+<div id="menu-page" class="page-hero-section division">
+    <div class="container">	
+        <div class="row">	
+            <div class="col-lg-10 offset-lg-1">
+                <div class="hero-txt text-center white-color">
+
+                    <!-- Title -->
+                    <section id="section-drinks" aria-label="section" class="jarallax" style="background-size: cover; z-index: 0;" data-jarallax-original-styles="background-size: cover;">
+                    <div class="de-title" style="background-size: cover;">
+                        <div class="spacer-single" style="background-size: cover;"></div>
+                        <h5 class="s1 wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><span class="id-color-2">Commande</span></h5>
+                        <h2 _ngcontent-dym-c62="" data-wow-delay=".75s" class="wow fadeInUp animated" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">Plat</h2>
+                    </div>
+                </section>
+
+                </div>
+            </div>	
+        </div>	  <!-- End row -->
+    </div>	   <!-- End container --> 
+</div>	<!-- END PAGE HERO -->	
+
+<section id="cart-1" class="wide-100 cart-page division">
+
+    <div class="container">
+        <div class="row ">   
+            <div class="col-lg-12 col-md-12 item">
+
+            <div  cdkDropListGroup>
+
+                <div *ngFor="let detail of items" class="example-container">
+                  <h3>{{detail.designation}}</h3>
+              
+                  <div
+                    cdkDropList 
+                    [id]="detail.id"
+                    [cdkDropListData]="detail.data"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="row   example-box" *ngFor="let item of detail.data" cdkDrag>
+                        <div class="col-md-12" > 
+                            <div class="row ">
+                                <div class="col-md-4 " ><span class="restau "><h4 >{{item?.restaurant?.nom}}</h4></span></div>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-5"><span class="adresse">Nombre de plats:</span></div>
+                                <div class="col-md-7"><span class="restau">{{item?.plats?.length}} plats</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5"><span class="adresse">Adresse</span></div>
+                                <div class="col-md-7"><span class="restau">  <i class="fa-solid fa-angles-right"></i>{{item?.adresse}}</span></div>
+                            </div>
+                            <div *ngIf="item.livreur ; else noLivreur" class="row" >
+                                <div class="col-md-5"><span class="adresse">Livreur:</span></div>
+                                <div class="col-md-7"><span class="restau margeRigth">{{item?.livreur?.prenom}}</span><span class="restau">{{item?.livreur?.nom}}</span></div>
+                            </div>
+                            <div *ngIf="item.livreur ; else noLivreur" class="row" >
+                                <div class="col-md-5"><span class="adresse">Frais de livraison:</span></div>
+                                <div class="col-md-7"><span class="restau margeRigth">{{item?.fraisLivraison}}</span></div>
+                            </div>
+                            <!-- <ng-template #noLivreur > -->
+                                <div  class="row" >
+                                    <div class="col-md-5">
+                                        <div class="add-to-cart-btn bg-yellow ico-20" (click)="handleClick($event,item.plats)">
+                                            <i class="fa fa-fw" aria-hidden="true" title="Copy to use list-ul"></i><span class="pc">Detail</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7"></div>
+                                </div>
+                            <!-- </ng-template> -->
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              
+ 
+
+              </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<app-alert-modal></app-alert-modal>
+
+<div class="col-md-4 mb60">
+
+
+    <div class="modal fade" id="scrollableModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scrollableModalLabel">Detail</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                          <th scope="col">Nom</th>
+                          <th scope="col">Prix </th>
+                    </tr>
+                 </thead>
+
+                <tbody>
+                    <tr *ngFor="let plat of detailPlat" >
+                          <td data-label="Product" class="product-name">
+                            <div class="cart-product-desc">
+                                  <b>{{plat.plat.nom}}</b>
+                                  <p class="p-sm">{{plat.plat.composition}}</p>
+                              </div>
+                          </td>
+                          <td data-label="Price" class="product-price"><span>{{plat.plat.prixVente}}Ar</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+      </div>
+    </div>      
+
+</div>
+

@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from 'express';
 import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
 import { FRAISLIVRAISON } from 'src/app/common/constante';
 import { commandeI } from 'src/app/dto/commandeI';
@@ -18,23 +20,31 @@ export class ListePlatComponent implements OnInit {
   constructor(
     private platService: PlatService,
     private storageService: StorageService,
-    private commandeService: CommandeService
+    private commandeService: CommandeService,
+    private routeA: ActivatedRoute
   ) { }
 
 
-  idRestau = "625035bc390e82c7941eae4b";
+  restauDetail={ idRestau: "", nom: ""};
   commande;
-  filtre = { filtre: "", _id: this.idRestau };
+  filtre = { filtre: "", _id: ""};
   listPlat: any = [];
 
   ngOnInit(): void {
-    this.getData();
     this.initlocal();
+    this.getData();
   }
 
   initlocal() {
+    this.restauDetail.idRestau=this.routeA.snapshot.queryParamMap.get('idRestau') || "";
+    console.log(this.routeA.snapshot.queryParamMap.get('idRestau')) ;
+    // console.log()
+    console.log(this.restauDetail);
+    this.restauDetail.nom=this.routeA.snapshot.queryParamMap.get('nom') || "";
+    this.filtre._id=this.restauDetail.idRestau;
+    console.log(this.filtre);
     this.commande = {
-      restaurant: { idRestau: this.idRestau, nom: "test" },
+      restaurant: { idRestau: this.restauDetail.idRestau, nom: this.restauDetail.nom },
       total: 0,
       plats: [],
       client: (this.storageService.getSessionStorage("USER_DETAIL")).user

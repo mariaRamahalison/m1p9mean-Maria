@@ -9,8 +9,8 @@ app.use('/public', express.static('public'));
 app.use(express.static('dist/angular-node'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-
+process.env.TZ = 'Africa/Nairobi' 
+console.log((new Date().toString()));
 // const corsOptions={
 //     origin:"*",
 //     methods:"GET;HEAD,PUT,PATCH,POST,DELETE",

@@ -12,11 +12,11 @@ const CommandeRouter = (url, app) => {
             .catch(error => { resultHelper.error(res, error.message); });
     });
 
-    app.post(url+"/update", (req, res) => {
+    app.put(url+"/update", (req, res) => {
         Commande = req.body;
         CommandeService.update(Commande)
-            .then(Commande => {
-                    resultHelper.succes(res,{},"Commande modifié avec succès")
+            .then(commande => {
+                    resultHelper.succes(res,commande,"Commande modifié avec succès")
             })
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
@@ -37,6 +37,16 @@ const CommandeRouter = (url, app) => {
             })
             .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
     });
+
+    app.get(url+"/find/now", (req, res) => {
+        CommandeService.getCommandeNow()
+            .then(Commandes => {
+                    resultHelper.succes(res, Commandes,"")
+            })
+            .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
+    });
+
+    
 }
 
 module.exports = CommandeRouter

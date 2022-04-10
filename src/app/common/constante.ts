@@ -28,8 +28,9 @@ export const APIPLAT = {
 
 export const APICOM = {
     filtre: '/api/commande/filtre',
-    create: '/api/commande/create'
-    // update: '/api/plat/update'
+    create: '/api/commande/create',
+    findNow: '/api/commande/find/now',
+    update: '/api/commande/update'
 }
 
 

@@ -38,4 +38,14 @@ export class CommandeService {
     return res;
   }
 
+  findNow(){
+    const res = this.dataServ.getData(APICOM.findNow);
+    return res;
+  }
+
+  update(data){
+    const res = this.dataServ.putData(APICOM.update,data);
+    return res;
+  }
+
 }

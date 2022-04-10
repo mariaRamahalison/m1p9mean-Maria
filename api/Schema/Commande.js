@@ -33,7 +33,7 @@ const CommandeSchema = new Schema({
         type: Number
     },
     status: {
-        type: String, default: "EN COURS"
+        type: String, default: "COMMANDE"
     },
     benefice: {
         type: Number,

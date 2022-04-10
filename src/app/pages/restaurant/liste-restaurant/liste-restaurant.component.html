@@ -1,51 +1,44 @@
+<div id="menu-page" class="page-hero-section division">
+    <div class="container">	
+        <div class="row">	
+            <div class="col-lg-10 offset-lg-1">
+                <div class="hero-txt text-center white-color">
 
-<!-- MENU-6
-============================================= -->
-<section id="menu-6" class="wide-70 menu-section division">
-    <div class="container">
-        <div *ngFor="let restau of listRestau" class="row">
-
-
-            <!-- MENU ITEM #1 -->
-            <div  class="col-sm-6 col-lg-3">
-                <div class="menu-6-item bg-white">
-
-                    <!-- IMAGE -->
-                    <div class="menu-6-img rel">
-                        <div class="hover-overlay">
-
-                            <!-- Image -->
-                            <img class="img-fluid" src="../../assets/testo/files/images/menu/burger-11.jpg" alt="menu-image" />
-
-                            <!-- Zoom Icon -->
-                            <div class="menu-img-zoom ico-25">
-                                <a href="../../assets/testo/files/images/menu/burger-11.jpg" class="image-link">
-                                    <span class="flaticon-zoom"></span>
-                                </a>
-                            </div> 
-
-                        </div>
+                    <!-- Title -->
+                    <section id="section-drinks" aria-label="section" class="jarallax" style="background-size: cover; z-index: 0;" data-jarallax-original-styles="background-size: cover;">
+                    <div class="de-title" style="background-size: cover;">
+                        <div class="spacer-single" style="background-size: cover;"></div>
+                        <h5 class="s1 wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><span class="id-color-2">Favorite</span></h5>
+                        <h2 _ngcontent-dym-c62="" data-wow-delay=".75s" class="wow fadeInUp animated" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">Restaurant</h2>
                     </div>
-
-                    <!-- TEXT -->
-                    <div class="menu-6-txt rel">
-
-                        <!-- Title -->
-                        <h5 class="h5-sm">{{restau.nom}}</h5>
-
-                        <!-- Description -->	
-                        <p class="grey-color">{{restau.tags}}</p>
-
-                        <!-- Add To Cart -->
-                        <!-- <div class="add-to-cart bg-yellow ico-10">
-                            <a href="product-single.html"><span class="flaticon-shopping-bag"></span> Add to Cart</a>
-                        </div> -->
-
-                    </div>
+                </section>
 
                 </div>
-            </div>	<!-- END MENU ITEM #1 -->
-        </div>	  <!-- End row -->	
-    </div>	   <!-- End container -->
-</section>	<!-- END MENU-6 -->
+            </div>	
+        </div>	  <!-- End row -->
+    </div>	   <!-- End container --> 
+</div>	<!-- END PAGE HERO -->	
 
+
+<div class="no-bottom no-top" id="content">
+    <div id="top"></div>
+    <!-- Carousel wrapper -->
+    <!-- Carousel wrapper -->
+    <section id="section-menu" aria-label="section">
+            <div class="container">
+                <div class="row g-4 masonry">   
+                    <div *ngFor="let restau of listRestau" class="col-lg-3 col-md-4 item">
+                        <div class="de-card-2 text-center" (click)="chooseRestau(restau)">
+                            <img src="02_images-restaurant/menu/png/1.png" alt="">
+                            <div class="div-content">
+                                <div class="atr-icon"><i class="fa fa-thumbs-up"></i></div>
+                                <h4>{{restau.nom}}</h4>
+                                <div class="atr-content">{{restau.tags}}</div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</div>

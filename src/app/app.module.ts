@@ -21,6 +21,9 @@ import { CommunModule } from './common/commun/commun.module';
 import { CommandeAdminComponent } from './pages/commande/commande-admin/commande-admin.component';
 import { CommunFormModule } from './common/commun-form/commun-form.module';
 import { LivreurComponent } from './pages/livreur/livreur.component';
+import { CommandeLivreurComponent } from './pages/commande/commande-livreur/commande-livreur.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -42,7 +45,8 @@ const APP_CONTAINERS = [
     ListePlatAdminComponent,
     ListePlatComponent,
     CommandeAdminComponent,
-    LivreurComponent
+    LivreurComponent,
+    CommandeLivreurComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,9 @@ const APP_CONTAINERS = [
     ReactiveFormsModule,
     HttpClientModule,
     CommunModule,
-    CommunFormModule
+    CommunFormModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 import { CommandeAdminComponent } from './pages/commande/commande-admin/commande-admin.component';
+import { CommandeLivreurComponent } from './pages/commande/commande-livreur/commande-livreur.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { LivreurComponent } from './pages/livreur/livreur.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -35,14 +36,14 @@ export const routes: Routes = [
         // },
         {
           path: 'restaurants',
-          component: ListeRestauAdminComponent,
+          component: ListeRestaurantComponent,
           data : {title : 'liste des restaurants'}
         },
-        // {
-        //   path: 'restaurants',
-        //   component: ListeRestaurantComponent,
-        //   data : {title : 'liste des restaurants'}
-        // },
+        {
+          path: 'restaurantAdmin',
+          component: ListeRestaurantComponent,
+          data : {title : 'liste des restaurants'}
+        },
         {
           path: 'platAdmin',
           component: ListePlatAdminComponent,
@@ -77,6 +78,16 @@ export const routes: Routes = [
           path: 'livreurAdmin',
           component: LivreurComponent,
           data : {title : 'livreur'}
+        },
+        {
+          path: 'restaurants',
+          component: ListeRestaurantComponent,
+          data : {title : 'liste des restaurant'}
+        },
+        {
+          path: 'commande/livreur',
+          component: CommandeLivreurComponent,
+          data : {title : 'gestion commande livreur'}
         }
         // {
         //   path: 'mesactions',
