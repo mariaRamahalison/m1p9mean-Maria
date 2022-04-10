@@ -30,7 +30,8 @@ export const APICOM = {
     filtre: '/api/commande/filtre',
     create: '/api/commande/create',
     findNow: '/api/commande/find/now',
-    update: '/api/commande/update'
+    update: '/api/commande/update',
+    trier: '/api/commande/benefice/tri'
 }
 
 

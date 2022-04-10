@@ -20,7 +20,8 @@ const RestaurantSchema = new Schema({
         type: String , 
         default:"VALIDE"
     },
-    plats: [Plat.PlatSchema]
+    plats: [Plat.PlatSchema],
+    benefice:[]
 });
 
 var Restaurant = mongoose.model('Restaurant', RestaurantSchema);

@@ -1,0 +1,98 @@
+<section id="subheader" class="text-light jarallax">
+    <img class="jarallax-img" src="../../assets/stradale/02_images-restaurant/background/3.jpg" alt="" />
+    <div class="center-y relative text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>STATISTIQUE</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="cart-1" class="wide-100 cart-page division">
+    <div class="container">
+            <!-- CART CHECKOUT -->		
+            <div class="row margeStatus">
+                <!-- DISCOUNT COUPON -->
+                <div class="col-lg-8">
+                    <div class="discount-coupon row pt-15">
+                        <!-- Form -->
+                        <!-- <div class="col-md-3 col-lg-2 btnAction">		
+                            <h5>Trier par :</h5>		
+                        </div> -->
+                        <div class="col-md-3 col-lg-3 btnAction">	
+                            <select  class="form-control" [(ngModel)]="filtre">
+                                <option value="" >Tous</option>
+                                <option value="day" >Jour</option>
+                                <option value="month" >Mois</option>
+                                <option value="year" >Année</option>
+                                <option *ngIf="isAdminEkaly()" value="restaurantId" >Restaurant</option>
+                                <option value="platId" >Plat</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-lg-2 btnAction">	
+                            <p  class="btn btn-md btn-red" (click)="trier()">Trier</p>
+                        </div>
+    
+    
+                        <!-- Button -->
+                        <div class="col-md-4 col-lg-5 text-right">
+                            <!-- <a onClick="window.location.reload()" class="btn btn-md btn-salmon tra-salmon-hover">Update Cart</a> -->
+                        </div>
+    
+                    </div>
+                </div>
+    
+    
+            </div>	  <!-- END CART CHECKOUT -->
+    
+    
+
+        <!-- CART TABLE -->	
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-table mb-70">
+                    <table id="myTable">
+                        <thead>
+                            <tr> 
+                                  <th scope="col">Restaurant</th>
+                                  <th scope="col">Plat</th>
+                                  <th scope="col">Bénéfice</th>
+                                  <th scope="col">Bénéfice</th>
+                                  <th scope="col">Jour</th>
+                                  <th scope="col">Mois</th>
+                                  <th scope="col">Année</th>
+                                  <th scope="col">quantite</th>
+                                  <th scope="col">Montant </th>
+                                  <th scope="col">Depense</th>
+                            </tr>
+                         </thead>
+
+                         <tbody  >
+
+                            <!-- CART ITEM #1 -->
+                                <tr *ngFor="let benefice of listBenefice" >
+                                    <td *ngIf="isAdminEkaly()" data-label="Restaurant" class="product-price">{{benefice.restaurantNom}}</td>
+                                    <td *ngIf="isFiltre('platId')" data-label="Plat" class="product-price">{{benefice.platNom}}</td> 
+                                    <td data-label="Benefice restaurant" class="product-price">{{benefice.beneficeRestau}}</td>
+                                    <td *ngIf="isAdminEkaly()" data-label="Benefice Ekaly" class="product-price">{{benefice.beneficeEkaly}}</td>
+                                    <td *ngIf="isFiltre('day')" data-label="Date" class="product-price">{{getDate(benefice)}}</td>
+                                    <td *ngIf="isFiltre('month')"data-label="Mois" class="product-price">{{benefice.month}}</td>
+                                    <td *ngIf="isFiltre('year')" data-label="Année" class="product-price">{{benefice.year}}</td>
+                                    <td data-label="Quantite" class="product-price">{{benefice.quantite}}</td>
+                                    <td data-label="Montant" class="product-price">{{benefice.montant}}</td>
+                                    <td data-label="Depense" class="product-price">{{benefice.achat}}</td>
+                                </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>	<!-- END CART TABLE -->
+
+
+    
+    </div>	   <!-- End container --> 
+</section>	<!-- END CART PAGE -->	
+

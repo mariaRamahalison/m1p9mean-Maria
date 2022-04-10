@@ -24,6 +24,7 @@ import { LivreurComponent } from './pages/livreur/livreur.component';
 import { CommandeLivreurComponent } from './pages/commande/commande-livreur/commande-livreur.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CommandestatistiqueComponent } from './pages/commande/commandestatistique/commandestatistique.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -46,7 +47,8 @@ const APP_CONTAINERS = [
     ListePlatComponent,
     CommandeAdminComponent,
     LivreurComponent,
-    CommandeLivreurComponent
+    CommandeLivreurComponent,
+    CommandestatistiqueComponent
   ],
   imports: [
     CommonModule,

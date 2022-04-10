@@ -48,4 +48,9 @@ export class CommandeService {
     return res;
   }
 
+  trier(data){
+    const res = this.dataServ.postData(APICOM.trier,data);
+    return res;
+  }
+
 }

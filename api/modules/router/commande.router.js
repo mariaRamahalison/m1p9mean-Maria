@@ -12,6 +12,24 @@ const CommandeRouter = (url, app) => {
             .catch(error => { resultHelper.error(res, error.message); });
     });
 
+    // app.get(url + "/benefice", (req, res) => {
+    //     // Commande = req.body
+    //     CommandeService.benefice()
+    //         .then(Commande => {
+    //             resultHelper.succes(res, Commande,"Bénéfice");
+    //         })
+    //         .catch(error => { resultHelper.error(res, error.message); });
+    // });
+
+
+    app.post(url + "/benefice/tri", (req, res) => {
+        CommandeService.getOnTri(req.body.value)
+            .then(Commande => {
+                resultHelper.succes(res, Commande,"tri");
+            })
+            .catch(error => { resultHelper.error(res, error.message); });
+    });
+
     app.put(url+"/update", (req, res) => {
         Commande = req.body;
         CommandeService.update(Commande)

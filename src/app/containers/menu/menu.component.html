@@ -23,38 +23,25 @@
                     </div>
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu -->
-                        <ul id="mainmenu">
-                            <li><a href="index.html">Home</a>
-                                <ul>
-                                    <li><a href="index.html">Homepage Cafe 1</a></li>
-                                    <li><a href="index-2.html">Homepage Cafe 2</a></li>
-                                    <li><a href="index-3.html">Homepage Cafe 3</a></li>
-                                    <li><a href="02_index.html">Homepage Restaurant 1</a>
-                                    <li><a href="02_index-2.html">Homepage Restaurant 2</a></li>
-                                </ul>
+                        <ul *ngIf="isRole('ADMIN')" id="mainmenu">
+                            <li><a href="index.html">Restaurant</a>
                             </li>
-                            <li><a href="menu.html">Menu</a>
-                                <ul>
-                                    <li><a href="menu.html">Menu</a></li>
-                                    <li><a href="02_menu-1.html">Menu 2</a></li>
-                                    <li><a href="02_menu-2.html">Menu 3</a></li>
-                                </ul>
+                            <li><a href="index.html">Livreur</a>
                             </li>
-                            <li><a href="reservation.html">Reservation</a></li>
-                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="menu.html">Statistique</a>
+                            </li>
+                        </ul>
+                        <ul *ngIf="isRole('RESTAURANT')" id="mainmenu">
+                            <li><a href="reservation.html">Plat</a></li>
+                            <li><a href="blog.html">Statistique</a></li>
+                        </ul>  
+                        <ul *ngIf="isRole('CLIENT')" id="mainmenu"> 
                             <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="#">Elements</a>
-                                <ul>
-                                    <li><a href="icons-elegant.html">Icons Elegant</a></li>
-                                    <li><a href="icons-etline.html">Icons Etline</a></li>
-                                    <li><a href="icons-font-awesome.html">Icons Font Awesome</a></li>
-                                    <li><a href="modal.html">Modal</a></li>
-                                    <li><a href="popover.html">Popover</a></li>
-                                    <li><a href="tabs.html">Tabs</a></li>
-                                    <li><a href="tooltips.html">Tooltips</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Restaurant</a>
+                            <li><a href="#">Panier</a>
+                        </ul>
+                        <ul *ngIf="isRole('LIVREUR')" id="mainmenu"> 
+                            <li><a href="gallery.html">Commande</a></li>
                         </ul>
                         <!-- mainmenu -->
                     </div>
