@@ -1,19 +1,17 @@
-<!-- <div class="no-bottom no-top" id="content">
-    <div id="top"></div> -->
-    
-    <!-- section begin -->
-    <section id="subheader" class="text-light jarallax">
-        <img class="jarallax-img" src="../../assets/stradale/02_images-restaurant/background/3.jpg" alt="" />
-        <div class="center-y relative text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1>COMMANDE</h1>
-                    </div>
+<div id="cart-page" class="page-hero-section division">
+    <div class="container">	
+        <div class="row">	
+            <div class="col-lg-10 offset-lg-1">
+                <div class="hero-txt text-center white-color">
+
+                    <!-- Title -->
+                    <h2 class="h2-xl">Commande</h2>
+
                 </div>
-            </div>
-        </div>
-    </section>
+            </div>	
+        </div>	  <!-- End row -->
+    </div>	   <!-- End container --> 
+</div>	
 <section id="cart-1" class="wide-100 cart-page division">
     <div class="container">
             <!-- CART CHECKOUT -->		
@@ -68,6 +66,7 @@
                                   <th scope="col">Client</th>
                                   <th scope="col">Adresse</th>
                                   <th scope="col">Frais de Livraison</th>
+                                  <th scope="col">Livreur</th>
                             </tr>
                          </thead>
 
@@ -77,12 +76,7 @@
                                 <tr *ngFor="let detail of commande.plats" >
                                     <td data-label="Price" class="product-price">{{commande.status}}</td>
                                     <td data-label="Price" class="product-price">{{commande.restaurant.nom}}</td> 
-                                    <td data-label="Product" class="product-name">
-                                      <div class="cart-product-desc">
-                                            <b>{{detail.plat.nom}}</b>
-                                            <p class="p-sm">{{detail.plat.composition}}</p>
-                                        </div> 
-                                    </td>
+                                    <td data-label="Price" class="product-price">{{detail.plat.nom}}</td> 
                                     <td data-label="Price" class="product-price">{{detail.prix}}</td>
                                     <td data-label="Price" class="product-price">{{detail.quantite}}</td>
                                     <td data-label="Price" class="product-price">{{detail.montant}}</td>
@@ -94,7 +88,12 @@
                                     </td>
                                     <td data-label="Price" class="product-price">{{commande.adresse}}</td>
                                     <td data-label="Price" class="product-price">{{commande.fraisLivraison}}</td>
-                                    <td data-label="Price" class="product-price">{{commande.livreur}}</td> 
+                                    <td *ngIf="commande.livreur.nom" data-label="Product" class="product-name">
+                                        <div class="cart-product-desc">
+                                          <b>{{commande.livreur.nom}}</b>
+                                              <p class="p-sm">{{commande.livreur.email}}</p>
+                                          </div>
+                                      </td>
                                 </tr>
                         </tbody>
 

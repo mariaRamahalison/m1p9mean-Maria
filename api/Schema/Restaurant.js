@@ -21,7 +21,10 @@ const RestaurantSchema = new Schema({
         default:"VALIDE"
     },
     plats: [Plat.PlatSchema],
-    benefice:[]
+    benefice:{
+        type:Number,
+        required: [true, "Veuillez entrer un bénéfice"]
+    }
 });
 
 var Restaurant = mongoose.model('Restaurant', RestaurantSchema);

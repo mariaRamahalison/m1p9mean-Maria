@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
+import { StorageService } from 'src/app/services/Helper/storage.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
@@ -9,12 +11,13 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 })
 export class ListeRestaurantComponent implements OnInit {
 
-
+  @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
   filtre = { filtre: "" };
   listRestau: any = [];
   constructor(
     private restauService: RestaurantService,
-    private router: Router
+    private router: Router,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +42,8 @@ export class ListeRestaurantComponent implements OnInit {
     let restau= { idRestau: item._id, nom: item.nom };
     this.router.navigate(['/plats'], { queryParams: restau });
   }
+
+  
 
 
 

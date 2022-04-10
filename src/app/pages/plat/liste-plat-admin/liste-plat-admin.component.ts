@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlatService } from 'src/app/services/plat.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
+import { StorageService } from 'src/app/services/Helper/storage.service';
 declare var $: any;
 
 
@@ -13,13 +14,15 @@ declare var $: any;
 export class ListePlatAdminComponent implements OnInit {
 
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
-  constructor(private platService: PlatService) { }
+  constructor(
+    private platService: PlatService,
+    private storageService : StorageService) { }
 
-  idRestau = "625035bc390e82c7941eae4b";
-  filtre = { filtre: "", _id: this.idRestau };
+  filtre = { filtre: "", _id: ""};
   listPlat: any = [];
   platForm!: FormGroup;
   action = "CREER";
+  user: any;
 
   setValue(item: any) {
     this.platForm = new FormGroup({
@@ -40,10 +43,15 @@ export class ListePlatAdminComponent implements OnInit {
     })
   }
 
+  initFiltre(){
+    this.user=(this.storageService.getLocalStorage("USER_DETAIL")).user;
+    this.filtre._id=this.user.profil.restaurant._id;
+  }
 
   ngOnInit(): void {
     this.getData();
     this.initForm();
+    this.initFiltre();
   }
 
   createModal() {
@@ -77,7 +85,7 @@ export class ListePlatAdminComponent implements OnInit {
 
   create() {
     $("#scrollableModal").modal('hide');
-    this.platService.create({ idRestau: this.idRestau, plat: this.platForm.value }).subscribe(
+    this.platService.create({ idRestau: this.filtre._id, plat: this.platForm.value }).subscribe(
       res => {
         this.alertModal?.open("Succès", "Plat crée avec succès");
         this.listPlat = [];

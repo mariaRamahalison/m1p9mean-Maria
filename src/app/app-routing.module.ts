@@ -22,7 +22,7 @@ export const routes: Routes = [
     data: { title: 'login' }
   },
   {
-    path: 'inscription/:action',
+    path: 'inscription',
     component: InscriptionComponent,
     data: { title: 'inscription' }
   },
@@ -41,12 +41,12 @@ export const routes: Routes = [
           data : {title : 'liste des restaurants'}
         },
         {
-          path: 'restaurantAdmin',
-          component: ListeRestaurantComponent,
+          path: 'restaurant/admin',
+          component: ListeRestauAdminComponent,
           data : {title : 'liste des restaurants'}
         },
         {
-          path: 'platAdmin',
+          path: 'plat/admin',
           component: ListePlatAdminComponent,
           data : {title : 'liste des plats'}
         },
@@ -56,7 +56,7 @@ export const routes: Routes = [
           data : {title : 'liste des plats'}
         },
         {
-          path: 'formulaire-plat',
+          path: 'formulaire/plat',
           component: FormulairePlatComponent,
           data : {title : 'formulaire catégories de plat'}
         },
@@ -71,12 +71,12 @@ export const routes: Routes = [
           data : {title : 'panier'}
         },
         {
-          path: 'commandeAdmin',
+          path: 'commande/admin',
           component: CommandeAdminComponent,
           data : {title : 'commande'}
         },
         {
-          path: 'livreurAdmin',
+          path: 'livreur/admin',
           component: LivreurComponent,
           data : {title : 'livreur'}
         },

@@ -26,6 +26,7 @@ export class ListeRestauAdminComponent implements OnInit {
       nom: new FormControl(item.nom, [Validators.required]),
       tags: new FormControl(item.tags),
       adresse: new FormControl(item.adresse, [Validators.required]),
+      benefice: new FormControl(item.benefice, [Validators.required]),
       _id: new FormControl(item._id),
     });
   }
@@ -34,7 +35,8 @@ export class ListeRestauAdminComponent implements OnInit {
     this.restauForm= new FormGroup({
       nom: new FormControl("",[Validators.required]),
       tags: new FormControl(),
-      adresse: new FormControl()
+      adresse: new FormControl(),
+      benefice: new FormControl("", [Validators.required]),
     })
   }
  

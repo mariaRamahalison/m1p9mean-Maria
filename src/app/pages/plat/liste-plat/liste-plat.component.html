@@ -1,36 +1,27 @@
 <div class="no-bottom no-top" id="content">
     <div id="top"></div>
     
-    <!-- section begin -->
-    <!-- PAGE HERO
-			============================================= -->	
-			<div id="menu-page" class="page-hero-section division">
-				<div class="container">	
-					<div class="row">	
-						<div class="col-lg-10 offset-lg-1">
-							<div class="hero-txt text-center white-color">
+    <div id="cart-page" class="page-hero-section division">
+        <div class="container">	
+            <div class="row">	
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="hero-txt text-center white-color">
 
-								<!-- Title -->
-                                <section id="section-drinks" aria-label="section" class="jarallax" style="background-size: cover; z-index: 0;" data-jarallax-original-styles="background-size: cover;">
-                                <div class="de-title" style="background-size: cover;">
-                                    <div class="spacer-single" style="background-size: cover;"></div>
-                                    <h5 class="s1 wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><span class="id-color-2">Favorite</span></h5>
-                                    <h2 _ngcontent-dym-c62="" data-wow-delay=".75s" class="wow fadeInUp animated" style="visibility: visible; animation-delay: 0.75s; animation-name: fadeInUp;">Plat</h2>
-                                </div>
-                            </section>
+                        <!-- Title -->
+                        <h2 class="h2-xl">Plat</h2>
 
-							</div>
-						</div>	
-					</div>	  <!-- End row -->
-				</div>	   <!-- End container --> 
-			</div>	<!-- END PAGE HERO -->	
-   
+                    </div>
+                </div>	
+            </div>	  <!-- End row -->
+        </div>	   <!-- End container --> 
+    </div>	
+
     <!-- <div class="container"> -->
         
     <!-- section close -->
 
     <!-- section begin -->
-    <section id="section-fun-facts">
+    <section *ngIf="listPlat.length>0;else noPlat" id="section-fun-facts">
         <div class="container">
             <div class="row g-5 masonry">   
                     <div class="col-lg-12 col-md-12 item">
@@ -48,6 +39,18 @@
                 </div>
         </div>
     </section>
+     <ng-template #noPlat >
+        <section id="section-fun-facts">
+            <div class="container">
+                <div class="row g-5 masonry">   
+                        <div class="col-lg-12 col-md-12 item">
+                            <h3>AUCUN PLAT DISPONIBLE</h3>
+                        </div>
+                </div>
+            </div>
+        </section>
+     </ng-template>
+
 
 </div>
 

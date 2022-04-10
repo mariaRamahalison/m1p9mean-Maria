@@ -112,9 +112,14 @@
         <div class="erreur" *ngIf="verifyForm('restaurant')"> 
             Un restaurant est requis
         </div> 
+    </div>       
+    <div class="col-md-3">
+        <div class="erreur" *ngIf="verifyForm('restaurant')"> 
+            Un restaurant est requis
+        </div> 
     </div>            
     <!-- Form Button -->
-    <div class="col-md-12 mt-10 marge">  
+    <div class="col-md-8 mt-10 marge">  
         <p *ngIf="actionButton==='INSCRIPTION'" class="btn-main buttonInscription "  (click)="inscription()">Valider</p>
         <p *ngIf="actionButton==='MODIFICATION'" class="btn-main buttonInscription "  (click)="update()">Modifier</p>
     </div>                                            

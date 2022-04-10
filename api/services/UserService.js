@@ -34,6 +34,7 @@ async function inscription(us) {
     if (us.profil.nom === 'RESTAURANT') {
         if (!us.profil.restaurant) throw new Error("Vérifier le champ restaurant");
         us.mdp = generateMdp();
+        console.log(us.mdp);
     }
     if (us.profil.nom === 'LIVREUR') us.mdp = generateMdp();
     if (await verifyEmail(us)) {

@@ -23,32 +23,40 @@
                     </div>
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu -->
-                        <ul *ngIf="isRole('ADMIN')" id="mainmenu">
-                            <li><a href="index.html">Restaurant</a>
-                            </li>
-                            <li><a href="index.html">Livreur</a>
-                            </li>
-                            <li><a href="menu.html">Statistique</a>
-                            </li>
-                        </ul>
-                        <ul *ngIf="isRole('RESTAURANT')" id="mainmenu">
-                            <li><a href="reservation.html">Plat</a></li>
-                            <li><a href="blog.html">Statistique</a></li>
-                        </ul>  
-                        <ul *ngIf="isRole('CLIENT')" id="mainmenu"> 
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="#">Restaurant</a>
-                            <li><a href="#">Panier</a>
-                        </ul>
-                        <ul *ngIf="isRole('LIVREUR')" id="mainmenu"> 
-                            <li><a href="gallery.html">Commande</a></li>
-                        </ul>
+                        <div class="de-flex-col header-col-mid">
+                            <!-- mainmenu -->
+                            <ul *ngIf="isRole('ADMIN')" id="mainmenu">
+                                <li><a routerLink="/restaurant/admin" >Restaurant</a></li>
+                                <li><a routerLink="/commande/admin">Commande</a></li>
+                                <li><a routerLink="/commande/livreur" >Livraison</a></li>
+                                <li><a routerLink="/statistique" >Statistique</a></li>
+                            </ul>
+                            <ul *ngIf="isRole('RESTAURANT')" id="mainmenu">
+                                <li><a routerLink="/plat/admin" >Plat</a></li>
+                                <li><a routerLink="/commande/admin" >Commande</a></li>
+                                <li><a routerLink="/statistique" >Statistique</a></li>
+                            </ul>  
+                            <ul *ngIf="isRole('CLIENT')" id="mainmenu"> 
+                                <li><a routerLink="/restaurants">Restaurants</a></li>
+                            </ul>
+                            <ul *ngIf="isRole('LIVREUR')" id="mainmenu"> 
+                                <li><a routerLink="/commande/livreur">Commande</a></li>
+                            </ul>
+                            <!-- mainmenu -->
+                        </div>
+                        
+                        
                         <!-- mainmenu -->
                     </div>
                     <div class="de-flex-col">
                         <div class="menu_side_area">
-                            <a href="reservation.html" class="btn-main sm-hide">Reservation</a>
-                            <span id="menu-btn"></span>
+                            <div *ngIf="isRole('CLIENT')" class="de-flex-col">
+                                <li class="basket-ico ico-30">
+                                    <a routerLink="/panier" >
+                                        <span class="ico-holder"><span class="flaticon-shopping-bag"></span> <em class="roundpoint">2</em></span>
+                                    </a>
+                                </li>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -20,9 +20,14 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
     email : new FormControl('', [Validators.required ] ),
     mdp : new FormControl('', [Validators.required]),
-  })
+  });
+  user:any;
 
   ngOnInit(): void {
+  }
+
+  isRole(value){
+    return this.user.profil.nom===value;
   }
 
   login(){
@@ -30,10 +35,22 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.loginForm.value).subscribe(
         res=>{
           LOCALSTORAGE.token=res.data.token,
-          LOCALSTORAGE.user=res.data.user
+          LOCALSTORAGE.user=res.data.user;
+          this.user=res.data.user;
           this.storageService.setlocalStorage("USER_DETAIL",LOCALSTORAGE);
           this.storageService.setlocalStorage("COMMANDE",COMMANDE);
-          this.route.navigate(['/restaurants']);
+          if(this.isRole('ADMIN')){
+            this.route.navigate(['/restaurant/admin']);
+          }
+          if(this.isRole('CLIENT')){
+            this.route.navigate(['/restaurants']);
+          }
+          if(this.isRole('LIVREUR')){
+            this.route.navigate(['/commande/livreur']);
+          }
+          if(this.isRole('RESTAURANT')){
+            this.route.navigate(['/plat/admin']);
+          }
         },
         error=>{
         });

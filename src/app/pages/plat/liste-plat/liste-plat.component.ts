@@ -1,9 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from 'express';
 import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
-import { FRAISLIVRAISON } from 'src/app/common/constante';
-import { commandeI } from 'src/app/dto/commandeI';
 import { CommandeService } from 'src/app/services/commande.service';
 import { StorageService } from 'src/app/services/Helper/storage.service';
 import { PlatService } from 'src/app/services/plat.service';
@@ -29,35 +26,50 @@ export class ListePlatComponent implements OnInit {
   commande;
   filtre = { filtre: "", _id: ""};
   listPlat: any = [];
+  user;
+
 
   ngOnInit(): void {
     this.initlocal();
     this.getData();
+    this.verifyCommande();
+  }
+
+  verifyCommande(){
+    this.user=(this.storageService.getLocalStorage("USER_DETAIL")).user;
+    this.commande=this.storageService.getLocalStorage("COMMANDE");
+    if(this.commande?.plats?.length>0 && this.commande?.restaurant?.idRestau!=this.restauDetail.idRestau){
+      console.log("okok");
+      this.alertModal?.open("Information","Vous avez encore un panier en cours si vous faite un ajout d'un autre restaurant , le précédent panier sera annuler ")
+    }
   }
 
   initlocal() {
     this.restauDetail.idRestau=this.routeA.snapshot.queryParamMap.get('idRestau') || "";
-    console.log(this.routeA.snapshot.queryParamMap.get('idRestau')) ;
-    // console.log()
-    console.log(this.restauDetail);
     this.restauDetail.nom=this.routeA.snapshot.queryParamMap.get('nom') || "";
     this.filtre._id=this.restauDetail.idRestau;
-    console.log(this.filtre);
+  }
+
+  initCommande(){
     this.commande = {
       restaurant: { idRestau: this.restauDetail.idRestau, nom: this.restauDetail.nom },
       total: 0,
       plats: [],
       client: (this.storageService.getSessionStorage("USER_DETAIL")).user
     };
-    this.storageService.setlocalStorage("COMMANDE", this.commande)
-
+    this.storageService.setlocalStorage("COMMANDE", this.commande);
   }
 
+
   commander(item: any) {
-    let objCommande = (this.storageService.getLocalStorage("COMMANDE"));
-    if ((objCommande.plats.filter(element => element.plat._id === item._id)).length == 0) {
-      objCommande.plats.push({ plat: item, quantite: 1, montant: 0 });
-      this.commandeService.saveLocalCommande(objCommande);
+    this.commande= (this.storageService.getLocalStorage("COMMANDE"));
+    if(this.commande?.plats?.length==0){
+      this.initCommande();
+    }
+    this.commande = (this.storageService.getLocalStorage("COMMANDE"));
+    if ((this.commande.plats.filter(element => element.plat._id === item._id)).length == 0) {
+      this.commande.plats.push({ plat: item, quantite: 1, montant: 0 });
+      this.commandeService.saveLocalCommande(this.commande);
       this.alertModal?.open("Succès", "Plat ajouter avec succès");
     } else {
       this.alertModal?.open("Error", "Plat déja dans le panier");
