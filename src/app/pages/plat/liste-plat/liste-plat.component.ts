@@ -21,7 +21,7 @@ export class ListePlatComponent implements OnInit {
     private routeA: ActivatedRoute
   ) { }
 
-
+  load=true;
   restauDetail={ idRestau: "", nom: ""};
   commande;
   filtre = { filtre: "", _id: ""};
@@ -71,13 +71,14 @@ export class ListePlatComponent implements OnInit {
   getData() {
     this.platService.filtre(this.filtre).subscribe(
       res => {
+        this.load=false;
         this.listPlat = [];
         res.data.forEach((element: any) => {
             this.listPlat.push(element);
         });
       },
       error => {
-
+        this.load=false;
       }
     )
   }

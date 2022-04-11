@@ -30,9 +30,9 @@ export class ListeRestaurantComponent implements OnInit {
   getData() {
     this.restauService.filtre(this.filtre).subscribe(
       res => {
+        this.load=false;
         this.listRestau = [];
         res.data.forEach((element: any) => {
-          this.load=false;
           this.listRestau.push(element);
         });
       },

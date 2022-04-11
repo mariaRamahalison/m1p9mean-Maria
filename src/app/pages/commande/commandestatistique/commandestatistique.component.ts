@@ -12,6 +12,7 @@ export class CommandestatistiqueComponent implements OnInit {
   listBenefice:any=[];
   filtre={value:""};
   user:any;
+  load=true;
   constructor(
     private commandeService: CommandeService,
     private storageService: StorageService)
@@ -47,12 +48,13 @@ export class CommandestatistiqueComponent implements OnInit {
     this.commandeService.trier(filtre)
       .subscribe(
         res => { 
+          this.load=false;
           this.listBenefice=[];
           res.data.forEach(element => {
             this.listBenefice.push(element);
           });
         },
-        error => { }
+        error => {this.load=false; }
       )};
 
 }

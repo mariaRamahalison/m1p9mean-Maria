@@ -11,7 +11,7 @@ declare var $: any;
   styleUrls: ['./commande-livreur.component.scss']
 })
 export class CommandeLivreurComponent implements OnInit {
-
+  load=true;
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
   listAll: any = [];
   items = [
@@ -115,13 +115,14 @@ export class CommandeLivreurComponent implements OnInit {
     this.commandeService.findNow()
       .subscribe(
         res => {
+          this.load=false;
           this.listAll = [];
           res.data.forEach(element => {
             this.listAll.push(element);
           });
           this.trier();
         },
-        error => { });
+        error => { this.load=false; });
   }
 
   verifyDispo(item) {

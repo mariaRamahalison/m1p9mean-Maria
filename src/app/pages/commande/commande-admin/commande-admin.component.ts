@@ -14,6 +14,7 @@ export class CommandeAdminComponent implements OnInit {
   filtre = { restau: "", status: ""};
   listCommande: any = [];
   user : any;
+  load=true;
   constructor(
     private commandeService: CommandeService,
     private storageService : StorageService
@@ -43,12 +44,13 @@ export class CommandeAdminComponent implements OnInit {
     this.commandeService.filtrer(this.filtre)
       .subscribe(
         res => { 
+          this.load=false;
           this.listCommande=[];
           res.data.forEach(element => {
             this.listCommande.push(element);
           });
         },
-        error => { }
+        error => { this.load=false; }
       )
   }
 

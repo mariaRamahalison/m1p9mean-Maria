@@ -17,6 +17,7 @@ export class ListeRestauAdminComponent implements OnInit {
   action="CREER";
   listRestau: any = [];
   restauForm!: FormGroup  ;
+  load=true;
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
   
   constructor(private restauService: RestaurantService) { }
@@ -107,13 +108,14 @@ export class ListeRestauAdminComponent implements OnInit {
   getData() {
     this.restauService.filtre(this.filtre).subscribe(
       res => {
+        this.load=false;
         this.listRestau = [];
         res.data.forEach((element: any) => {
           this.listRestau.push(element);
         });
        },
       error => {
-
+        this.load=false;
       }
     )
   }

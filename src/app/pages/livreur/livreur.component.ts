@@ -26,6 +26,7 @@ export class LivreurComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     restaurant: new FormControl()
   });
+  load=true;
 
   constructor(
     private livreurService : LivreurService,
@@ -75,13 +76,14 @@ export class LivreurComponent implements OnInit {
   getData(){
     this.livreurService.find().subscribe(
       res=>{
+        this.load=false;
         this.listLivreur=[];
         res.data.forEach((element: any)=> {
           this.listLivreur.push(element);
         });
       },
       error=>{
-
+        this.load=false;
       }
     )
   }

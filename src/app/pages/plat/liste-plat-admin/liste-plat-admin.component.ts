@@ -103,9 +103,9 @@ export class ListePlatAdminComponent implements OnInit {
   getData() {
     this.platService.filtre(this.filtre).subscribe(
       res => {
+        this.load=false;
         this.listPlat = [];
         res.data.forEach((element: any) => {
-          this.load=false;
           // element.plats.forEach((element: any) => {
             this.listPlat.push(element);
           // });
