@@ -17,91 +17,92 @@ import { ListeRestaurantComponent } from './pages/restaurant/liste-restaurant/li
 
 export const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
-    data: { title: 'login' }
-  },
-  {
-    path: 'inscription',
-    component: InscriptionComponent,
-    data: { title: 'inscription' }
-  },
-  {
-    path: '',
-    component: DefaultLayoutComponent,
-    data: { title: 'menu' },
+    path: 'app',
     children: [
-        // {
-        //   path: 'restaurants',
-        //   loadChildren: () => import('./pages/restaurant/liste-restaurant/liste-restaurant.module').then(mod => mod.ListeRestaurantModule)
-        // },
-        {
-          path: 'restaurants',
-          component: ListeRestaurantComponent,
-          data : {title : 'liste des restaurants'}
-        },
-        {
-          path: 'restaurant/admin',
-          component: ListeRestauAdminComponent,
-          data : {title : 'liste des restaurants'}
-        },
-        {
-          path: 'plat/admin',
-          component: ListePlatAdminComponent,
-          data : {title : 'liste des plats'}
-        },
-        {
-          path: 'plats',
-          component: ListePlatComponent,
-          data : {title : 'liste des plats'}
-        },
-        {
-          path: 'formulaire/plat',
-          component: FormulairePlatComponent,
-          data : {title : 'formulaire catégories de plat'}
-        },
-        {
-          path: 'formulaire',
-          component: FormulaireComponent,
-          data : {title : 'formulaire'}
-        },
-        {
-          path: 'panier',
-          component: PanierComponent,
-          data : {title : 'panier'}
-        },
-        {
-          path: 'commande/admin',
-          component: CommandeAdminComponent,
-          data : {title : 'commande'}
-        },
-        {
-          path: 'livreur/admin',
-          component: LivreurComponent,
-          data : {title : 'livreur'}
-        },
-        {
-          path: 'restaurants',
-          component: ListeRestaurantComponent,
-          data : {title : 'liste des restaurant'}
-        },
-        {
-          path: 'commande/livreur',
-          component: CommandeLivreurComponent,
-          data : {title : 'gestion commande livreur'}
-        },
-        {
-          path: 'statistique',
-          component: CommandestatistiqueComponent,
-          data : {title : 'statistique '}
-        }
-        // {
-        //   path: 'mesactions',
-        //   loadChildren: () => import('./pages/mesactions/mesactions.module').then(m => m.MesactionsModule)
-        // }
-      ]
+      {
+        path: 'login',
+        component: LoginComponent,
+        data: { title: 'login' }
+      },
+      {
+        path: 'inscription',
+        component: InscriptionComponent,
+        data: { title: 'inscription' }
+      },
+      {
+        path: '',
+        component: DefaultLayoutComponent,
+        data: { title: 'menu' },
+        children: [
+            // {
+            //   path: 'restaurants',
+            //   loadChildren: () => import('./pages/restaurant/liste-restaurant/liste-restaurant.module').then(mod => mod.ListeRestaurantModule)
+            // },
+            {
+              path: 'restaurants',
+              component: ListeRestaurantComponent,
+              data : {title : 'liste des restaurants'}
+            },
+            {
+              path: 'restaurant/admin',
+              component: ListeRestauAdminComponent,
+              data : {title : 'liste des restaurants'}
+            },
+            {
+              path: 'plat/admin',
+              component: ListePlatAdminComponent,
+              data : {title : 'liste des plats'}
+            },
+            {
+              path: 'plats',
+              component: ListePlatComponent,
+              data : {title : 'liste des plats'}
+            },
+            {
+              path: 'formulaire/plat',
+              component: FormulairePlatComponent,
+              data : {title : 'formulaire catégories de plat'}
+            },
+            {
+              path: 'formulaire',
+              component: FormulaireComponent,
+              data : {title : 'formulaire'}
+            },
+            {
+              path: 'panier',
+              component: PanierComponent,
+              data : {title : 'panier'}
+            },
+            {
+              path: 'commande/admin',
+              component: CommandeAdminComponent,
+              data : {title : 'commande'}
+            },
+            {
+              path: 'livreur/admin',
+              component: LivreurComponent,
+              data : {title : 'livreur'}
+            },
+            {
+              path: 'restaurants',
+              component: ListeRestaurantComponent,
+              data : {title : 'liste des restaurant'}
+            },
+            {
+              path: 'commande/livreur',
+              component: CommandeLivreurComponent,
+              data : {title : 'gestion commande livreur'}
+            },
+            {
+              path: 'statistique',
+              component: CommandestatistiqueComponent,
+              data : {title : 'statistique '}
+            }
+          ]
+      },
+    ]
   },
-  // { path: '**', component: P404Component }
+  { path: '**', redirectTo: '/app' }
 ];
 
 // @NgModule({
