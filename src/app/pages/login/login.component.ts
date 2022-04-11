@@ -40,16 +40,16 @@ export class LoginComponent implements OnInit {
           this.storageService.setlocalStorage("USER_DETAIL",LOCALSTORAGE);
           this.storageService.setlocalStorage("COMMANDE",COMMANDE);
           if(this.isRole('ADMIN')){
-            this.route.navigate(['/restaurant/admin']);
+            this.route.navigate(['app/restaurant/admin']);
           }
           if(this.isRole('CLIENT')){
-            this.route.navigate(['/restaurants']);
+            this.route.navigate(['app/restaurants']);
           }
           if(this.isRole('LIVREUR')){
-            this.route.navigate(['/commande/livreur']);
+            this.route.navigate(['app/commande/livreur']);
           }
           if(this.isRole('RESTAURANT')){
-            this.route.navigate(['/plat/admin']);
+            this.route.navigate(['app/plat/admin']);
           }
         },
         error=>{

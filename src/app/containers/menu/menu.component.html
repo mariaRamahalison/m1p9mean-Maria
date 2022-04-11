@@ -24,28 +24,28 @@
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu -->
                         <ul id="mainmenu">
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/restaurant/admin" >Restaurant</a></li>
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/commande/admin">Commande</a></li>
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/commande/livreur" >Livraison</a></li>
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/statistique" >Statistique</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/restaurant/admin" >Restaurant</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/commande/admin">Commande</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/commande/livreur" >Livraison</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/statistique" >Statistique</a></li>
                         <!-- </ul> -->
                         <!-- <ul *ngIf="isRole('RESTAURANT')" id="mainmenu"> -->
-                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/plat/admin" >Plat</a></li>
-                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/commande/admin" >Commande</a></li>
-                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/statistique" >Statistique</a></li>
+                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/plat/admin" >Plat</a></li>
+                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/commande/admin" >Commande</a></li>
+                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/statistique" >Statistique</a></li>
                         <!-- </ul>   -->
                         <!-- <ul *ngIf="isRole('CLIENT')" id="mainmenu">  -->
-                            <li *ngIf="isRole('CLIENT')"><a routerLink="/restaurants">Restaurants</a></li>
+                            <li *ngIf="isRole('CLIENT')"><a routerLink="/app/restaurants">Restaurants</a></li>
                         <!-- </ul> -->
                         <!-- <ul *ngIf="isRole('LIVREUR')" id="mainmenu">  -->
-                            <li *ngIf="isRole('LIVREUR')"><a routerLink="/commande/livreur">Commande</a></li>
+                            <li *ngIf="isRole('LIVREUR')"><a routerLink="/app/commande/livreur">Commande</a></li>
                         </ul>
                         <!-- mainmenu -->
                     </div>
                     <div class="de-flex-col">
                         <div class="menu_side_area">
                             <li *ngIf="isRole('CLIENT')" >
-                                <a routerLink="/panier" >
+                                <a routerLink="/app/panier" >
                                     <span class="ico-holder"><span class="flaticon-shopping-bag"></span> <em class="roundpoint"></em></span>
                                 </a>
                             </li>
