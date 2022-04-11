@@ -30,7 +30,7 @@ export class FormulaireInscriptionComponent implements OnInit {
   });
 
   ngOnChanges() {
-    console.log(this.user);
+    // console.log(this.user);
     this.initUser();
   }
 
@@ -73,7 +73,7 @@ export class FormulaireInscriptionComponent implements OnInit {
           // this.alertModal?.open("Error","Pas de restaurant disponible");
         }else{
           this.defaultRestau=this.listRestau[0];
-          console.log(this.defaultRestau);
+          // console.log(this.defaultRestau);
         }
        },
       error => {
@@ -118,7 +118,7 @@ export class FormulaireInscriptionComponent implements OnInit {
 
 
   inscription() {
-    console.log(this.inscriptionForm.value);
+    // console.log(this.inscriptionForm.value);
     if (this.inscriptionForm.valid) {
       let user=this.inscriptionForm.value;
       user=this.asignProfil(user);

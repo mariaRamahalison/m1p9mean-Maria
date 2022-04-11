@@ -5,7 +5,7 @@ var verifyToken = function (req, res, next) {
         req.user= decoded.user;
         next();
     } catch (ex) {
-        console.log(ex);
+        // console.log(ex);
         res.status(400).send({ code: 400, message: "Token invalid ,veuillez vous reconnecter" });
     }
 }

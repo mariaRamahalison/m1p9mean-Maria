@@ -17,6 +17,11 @@ import { ListeRestaurantComponent } from './pages/restaurant/liste-restaurant/li
 
 export const routes: Routes = [
   {
+    // {
+    //   path: '',
+    //   redirectTo: 'login',
+    //   pathMatch: 'full',
+    // },
     path: 'app',
     children: [
       {
@@ -101,8 +106,8 @@ export const routes: Routes = [
           ]
       },
     ]
-  }
-  // { path: '**', redirectTo: '/app' }
+  },
+  { path: '**', redirectTo: '/app/login' }
 ];
 
 // @NgModule({

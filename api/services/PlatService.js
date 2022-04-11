@@ -39,9 +39,9 @@ function criteria(item, plat) {
     let value = false;
     if (plat.nom.match(new RegExp(item.filtre, "i")) || plat.composition.match(new RegExp(item.filtre, "i"))) {
         value = true;
-        console.log("ok");
+        // console.log("ok");
         if (item.status) {
-            console.log(plat.status);
+            // console.log(plat.status);
             if (plat.status != item.status) value = false;
         }
     }

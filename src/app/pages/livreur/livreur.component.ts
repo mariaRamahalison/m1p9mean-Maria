@@ -92,11 +92,11 @@ export class LivreurComponent implements OnInit {
   }
 
   inscription() {
-    console.log(this.inscriptionForm.value);
+    // console.log(this.inscriptionForm.value);
     if (this.inscriptionForm.valid) {
       let user=this.inscriptionForm.value;
       user.profil={nom:"LIVREUR"};
-      console.log(user);
+      // console.log(user);
       this.userService.inscription(user).subscribe(
         res=>{
           this.result={message:"Inscription faite avec succès",type:"succes"};

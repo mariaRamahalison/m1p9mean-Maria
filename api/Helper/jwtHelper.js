@@ -24,7 +24,7 @@ function decode(token) {
         var decoded = jwt.verify(token, 'secret');
         return decoded;
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         throw new Error("token invalid");
     }
 }

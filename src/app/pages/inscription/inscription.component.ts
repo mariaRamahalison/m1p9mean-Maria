@@ -39,7 +39,7 @@ export class InscriptionComponent implements OnInit {
 
 
   inscription() {
-    console.log(this.inscriptionForm.value);
+    // console.log(this.inscriptionForm.value);
     if (this.inscriptionForm.valid) {
       let user=this.inscriptionForm.value;
       user.profil={nom:"CLIENT"};

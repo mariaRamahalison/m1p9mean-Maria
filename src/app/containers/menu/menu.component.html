@@ -12,9 +12,7 @@
                         <div class="de-flex-col">
                             <!-- logo begin -->
                             <div id="logo">
-                                <a href="index.html">
-                                    <img alt="" src="02_images-restaurant/logo.png" />
-                                </a>
+                                <h4>E-kaly</h4>
                             </div>
                             <!-- logo close -->
                         </div>
@@ -24,15 +22,15 @@
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu -->
                         <ul id="mainmenu">
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/restaurant/admin" >Restaurant</a></li>
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/commande/admin">Commande</a></li>
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/livreur/admin" >Livreur</a></li>
-                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/statistique" >Statistique</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/restaurant/admin" >RESTAURANT</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/commande/admin">COMMANDE</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/livreur/admin" >LIVREUR</a></li>
+                            <li *ngIf="isRole('ADMIN')" id="mainmenu"><a routerLink="/app/statistique" >STATISTIQUE</a></li>
                         <!-- </ul> -->
                         <!-- <ul *ngIf="isRole('RESTAURANT')" id="mainmenu"> -->
-                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/plat/admin" >Plat</a></li>
-                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/commande/admin" >Commande</a></li>
-                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/statistique" >Statistique</a></li>
+                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/plat/admin" >PLAT</a></li>
+                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/commande/admin" >COMMANDE</a></li>
+                            <li *ngIf="isRole('RESTAURANT')"><a routerLink="/app/statistique" >STATI</a></li>
                         <!-- </ul>   -->
                         <!-- <ul *ngIf="isRole('CLIENT')" id="mainmenu">  -->
                             <li *ngIf="isRole('CLIENT')"><a routerLink="/app/restaurants">RESTAURANT</a></li>
@@ -43,12 +41,13 @@
                             </li>
                             <!-- </ul> -->
                         <!-- <ul *ngIf="isRole('LIVREUR')" id="mainmenu">  -->
-                            <li *ngIf="isRole('LIVREUR')"><a routerLink="/app/commande/livreur">Commande</a></li>
+                            <li *ngIf="isRole('LIVREUR')"><a routerLink="/app/commande/livreur">COMMANDE</a></li>
                         </ul>
                         <!-- mainmenu -->
                     </div>
-                    <div class="de-flex-col">
+                    <div class="de-flex-col header-col-mid">
                         <div class="menu_side_area">
+                            Se deconnecter
                             <a (click)="deconnecter()" class="deconnecter">
                                 <i class="fa fa-fw" aria-hidden="true" title="Copy to use sign-out"></i>
                             </a>

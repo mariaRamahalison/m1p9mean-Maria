@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.loginForm.value).subscribe(
         res=>{
           LOCALSTORAGE.token=res.data.token,
-          console.log(LOCALSTORAGE.token);
+          // console.log(LOCALSTORAGE.token);
           LOCALSTORAGE.user=res.data.user;
           this.user=res.data.user;
           this.storageService.setlocalStorage("USER_DETAIL",LOCALSTORAGE);

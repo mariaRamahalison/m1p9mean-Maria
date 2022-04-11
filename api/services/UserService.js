@@ -47,13 +47,13 @@ async function inscription(us) {
         .then(res => {
             sendMailInscription(us, message);
             return res;
-        })
+            })
         .catch(error => { throw error });
 }
 
 
 function sendMailInscription(us, message) {
-    console.log("niditra");
+    // console.log("niditra");
     if (us.profil.nom != 'CLIENT') {
         let payload = {
             to: us.email,
