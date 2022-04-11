@@ -23,7 +23,7 @@ export class ListePlatAdminComponent implements OnInit {
   platForm!: FormGroup;
   action = "CREER";
   user: any;
-
+  load=true;
   setValue(item: any) {
     this.platForm = new FormGroup({
       nom: new FormControl(item.nom, [Validators.required]),
@@ -105,13 +105,14 @@ export class ListePlatAdminComponent implements OnInit {
       res => {
         this.listPlat = [];
         res.data.forEach((element: any) => {
+          this.load=false;
           // element.plats.forEach((element: any) => {
             this.listPlat.push(element);
           // });
         });
       },
       error => {
-
+        this.load=false;
       }
     )
   }

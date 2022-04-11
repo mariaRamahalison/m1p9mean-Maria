@@ -14,11 +14,14 @@ export class ListeRestaurantComponent implements OnInit {
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
   filtre = { filtre: "" , status:"VALIDE" };
   listRestau: any = [];
+  load=true;
   constructor(
     private restauService: RestaurantService,
     private router: Router,
     private storageService: StorageService
   ) { }
+
+
 
   ngOnInit(): void {
     this.getData();
@@ -29,11 +32,12 @@ export class ListeRestaurantComponent implements OnInit {
       res => {
         this.listRestau = [];
         res.data.forEach((element: any) => {
+          this.load=false;
           this.listRestau.push(element);
         });
       },
       error => {
-
+        this.load=false;
       }
     )
   }
