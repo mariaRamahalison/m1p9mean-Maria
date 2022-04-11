@@ -39,8 +39,7 @@ export let COMMANDE : commandeI
 
 export const LOCALSTORAGE = {
     user: '',
-    token
-    : ''
+    token: ''
 };
 
 export const FRAISLIVRAISON= 50

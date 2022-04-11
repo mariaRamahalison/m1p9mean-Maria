@@ -18,7 +18,7 @@ export class DataService {
     headers: new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + (this.storageService.getLocalStorage("USER_DETAIL")).token
+      'Authorization': 'Bearer ' 
     })
   };
 

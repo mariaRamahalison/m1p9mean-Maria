@@ -101,8 +101,8 @@ export const routes: Routes = [
           ]
       },
     ]
-  },
-  { path: '**', redirectTo: '/app' }
+  }
+  // { path: '**', redirectTo: '/app' }
 ];
 
 // @NgModule({
