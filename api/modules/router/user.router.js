@@ -1,5 +1,3 @@
-// const { login, findAll } = require('../../../controller/user.controller')
-// var mongoose = require('mongoose');
 const UserService = require('../../services/UserService');
 var jwtHelper = require('../../Helper/jwtHelper');
 var resultHelper = require('../../Helper/resultHepler');

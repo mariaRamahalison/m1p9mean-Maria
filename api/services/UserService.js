@@ -1,7 +1,6 @@
 
 const User = require('../Schema/User');
 const jwtHelper = require('../Helper/jwtHelper');
-const { updateDecorator } = require('typescript');
 
 UserModel=User.User;
 async function find(query) {
