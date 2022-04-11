@@ -28,9 +28,26 @@ async function find(query) {
 
 async function filtre(item) {
     return find({
-        _id:item._id,
-        $or:[{ "plats.nom": { $regex: item.filtre} },{ "plats.composition": { $regex: item.filtre} }]
+        _id: item._id,
+        $or: [{ "plats.nom": { $regex: new RegExp(item.filtre, "i") } }, { "plats.composition": { $regex: new RegExp(item.filtre, "i") } }],
+    })
+        .then(res => { return filtreLike(res, item); })
+        .catch(error => { throw error })
+}
+
+function filtreLike(data, item) {
+    let result = [];
+    data.forEach(element => {
+        let value = element.plats.filter(plat => {
+            if (plat.nom.match(new RegExp(item.filtre, "i")) || plat.composition.match(new RegExp(item.filtre, "i"))) return true;
+        });
+        if (value.length > 0) Array.prototype.push.apply(result,value);
+        // Array.prototype.push.apply(a,arr2); 
     });
+    // result.forEach(element=>{
+    //     erged[item[prop]], item)
+    // })
+    return result;
 }
 
 

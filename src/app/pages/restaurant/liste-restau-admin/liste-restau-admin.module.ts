@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommunModule } from 'src/app/common/commun/commun.module';
 import { ListeRestauAdminComponent } from './liste-restau-admin.component';
 import { CommunFormModule } from 'src/app/common/commun-form/commun-form.module';
-// import { RestauCommunModule } from '../restau-commun/restau-commun.module';
 
 
 @NgModule({

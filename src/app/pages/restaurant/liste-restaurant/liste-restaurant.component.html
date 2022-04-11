@@ -5,16 +5,25 @@
             <div class="row">	
                 <div class="col-lg-10 offset-lg-1">
                     <div class="hero-txt text-center white-color">
-
-                        <!-- Title -->
-                        <h2 class="h2-xl">Restaurant</h2>
-
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="h2-xl">Restaurant</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" name="filtre"  [(ngModel)]="filtre.filtre" placeholder="Search" aria-label="Search">
+                                    <i class="fa fa-fw my-2 my-sm-0" aria-hidden="true" (click)="filtrer()" title="Search"></i>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>	
             </div>	  <!-- End row -->
         </div>	   <!-- End container --> 
     </div>	
-
+    <div class="no-bottom no-top" id="content">
     <section id="section-menu" aria-label="section">
             <div class="container">
                 <div class="row g-4 masonry">   

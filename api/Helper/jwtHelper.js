@@ -12,7 +12,7 @@ async function encryptPassword(password) {
 function generateToken(user) {
     return jwt.sign(
         { user: user },
-        process.env.TOKEN_KEY,
+        "token",
         {
             expiresIn: "24h",
         }

@@ -423,26 +423,26 @@
 		/*	Booking Form Validation
 		/*----------------------------------------------------*/
 
-		$(".booking-form").validate({
-			rules: {
-				select: "required",
-				name: "required",
-				email: {
-					required: true,
-					email: true
-				},
-				phone:{
-					required: true,
-					digits: true,
-				}
-			},
-			messages: {
-				select: "This field is required",
-				name: "Please enter your name",
-				email: "We need your email address to contact you",
-				phone: "Please enter a valid number",
-			}
-		});
+		// $(".booking-form").validate({
+		// 	rules: {
+		// 		select: "required",
+		// 		name: "required",
+		// 		email: {
+		// 			required: true,
+		// 			email: true
+		// 		},
+		// 		phone:{
+		// 			required: true,
+		// 			digits: true,
+		// 		}
+		// 	},
+		// 	messages: {
+		// 		select: "This field is required",
+		// 		name: "Please enter your name",
+		// 		email: "We need your email address to contact you",
+		// 		phone: "Please enter a valid number",
+		// 	}
+		// });
 
 
 		/*----------------------------------------------------*/

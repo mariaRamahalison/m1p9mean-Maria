@@ -100,7 +100,7 @@
 
 
                 <!-- CHECKOUT -->
-                <div class="col-lg-4">
+                <div *ngIf="commande.plats.length>0" class="col-lg-4">
                     <div class="cart-checkout bg-lightgrey">
 
                         <!-- Title -->
@@ -115,7 +115,7 @@
                                       <td> </td>
                                       <td class="text-right">{{commande.total}}</td>
                                 </tr>
-                                <tr class="last-tr">
+                                <tr  class="last-tr">
                                       <td>Frais de livraison</td>
                                       <td> </td>
                                       <td class="text-right">{{commande.fraisLivraison}}</td>
@@ -139,7 +139,7 @@
                         </table>
 
                         <!-- Button -->
-                        <a href="#" class="btn btn-md btn-salmon tra-salmon-hover"(click)="commander()">Commander</a>
+                        <a  class="btn btn-md btn-salmon tra-salmon-hover"(click)="commander()">Commander</a>
 
                     </div>
                 </div>	<!-- END CHECKOUT -->

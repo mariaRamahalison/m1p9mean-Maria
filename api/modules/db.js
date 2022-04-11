@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var url = 'mongodb://127.0.0.1:27017/Ekaly';
+var url = 'mongodb+srv://maria:maria@m1p9mean-maria.jn6by.mongodb.net/ekaly?retryWrites=true&w=majority';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Get the default connection

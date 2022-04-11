@@ -10,7 +10,7 @@ export class StorageService {
 
   getLocalStorage(key ){
     var object = localStorage.getItem(key);
-    if(object) return JSON.parse(object);
+    if(object !=null && object != typeof undefined) return JSON.parse(object);
     return null;
   }
   

@@ -38,6 +38,10 @@ export class ListeRestaurantComponent implements OnInit {
     )
   }
 
+  filtrer(){
+    this.getData();
+  }
+  
   chooseRestau(item : any) {
     let restau= { idRestau: item._id, nom: item.nom };
     this.router.navigate(['/plats'], { queryParams: restau });

@@ -32,16 +32,12 @@ export class ListePlatComponent implements OnInit {
   ngOnInit(): void {
     this.initlocal();
     this.getData();
-    this.verifyCommande();
+    this.initCommande();
+    
   }
 
-  verifyCommande(){
-    this.user=(this.storageService.getLocalStorage("USER_DETAIL")).user;
-    this.commande=this.storageService.getLocalStorage("COMMANDE");
-    if(this.commande?.plats?.length>0 && this.commande?.restaurant?.idRestau!=this.restauDetail.idRestau){
-      console.log("okok");
-      this.alertModal?.open("Information","Vous avez encore un panier en cours si vous faite un ajout d'un autre restaurant , le précédent panier sera annuler ")
-    }
+  filtrer(){
+    this.getData();
   }
 
   initlocal() {
@@ -62,10 +58,6 @@ export class ListePlatComponent implements OnInit {
 
 
   commander(item: any) {
-    this.commande= (this.storageService.getLocalStorage("COMMANDE"));
-    if(this.commande?.plats?.length==0){
-      this.initCommande();
-    }
     this.commande = (this.storageService.getLocalStorage("COMMANDE"));
     if ((this.commande.plats.filter(element => element.plat._id === item._id)).length == 0) {
       this.commande.plats.push({ plat: item, quantite: 1, montant: 0 });
@@ -81,9 +73,7 @@ export class ListePlatComponent implements OnInit {
       res => {
         this.listPlat = [];
         res.data.forEach((element: any) => {
-          element.plats.forEach((element: any) => {
             this.listPlat.push(element);
-          });
         });
       },
       error => {

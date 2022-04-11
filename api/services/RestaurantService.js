@@ -51,7 +51,9 @@ async function findAll() {
 }
 
 async function findBy(item) {
-    return await find({ nom: { $regex: item.filtre} } , { nom: { $regex: item.filtre } });
+    return await find({
+        $or: [{ nom: { $regex: new RegExp(item.filtre, "i")  } }, { tags: { $regex: new RegExp(item.filtre, "i") } }]
+    });
 }
 
 
