@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/services/Helper/storage.service';
 export class CommandestatistiqueComponent implements OnInit {
 
   listBenefice:any=[];
-  filtre="";
+  filtre={value:""};
   user:any;
   constructor(
     private commandeService: CommandeService,
@@ -19,6 +19,7 @@ export class CommandestatistiqueComponent implements OnInit {
  
 
   ngOnInit(): void {
+    this.getUser();
     this.trier();
   }
 
@@ -39,9 +40,7 @@ export class CommandestatistiqueComponent implements OnInit {
   }
 
   isFiltre(value){
-    console.log(value);
-    console.log(this.filtre===value || this.filtre==="");
-    return (this.filtre===value || this.filtre==="");
+    return (this.filtre.value===value || this.filtre.value==="");
   }
 
   getData( filtre ) {

@@ -6,7 +6,6 @@ var resultHelper = require('../../Helper/resultHepler');
 const UserRouter = (url, app) => {
 
     app.post("/user/login", (req, res) => {
-        // return res.status(200).send("ok");
         log = req.body
         UserService.login(log)
             .then(user => {
@@ -22,10 +21,10 @@ const UserRouter = (url, app) => {
         UserService.inscription(us)
             .then(user => {
                 if (user) {
-                    resultHelper.succes(res,{},"Inscription faite avec succès")
+                    resultHelper.succes(res,user,"Inscription faite avec succès");
                 }
             })
-            .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
+            .catch(error => {  resultHelper.error(res, error.message); });
     });
 
     app.get("/api/user/livreur/all", (req, res) => {
@@ -35,7 +34,7 @@ const UserRouter = (url, app) => {
                     resultHelper.succes(res,user,"")
                 }
             })
-            .catch(error => {  console.log(error); resultHelper.error(res, error.message); });
+            .catch(error => {  resultHelper.error(res, error.message); });
     });
 
     app.put("/api/user/update", (req, res) => {

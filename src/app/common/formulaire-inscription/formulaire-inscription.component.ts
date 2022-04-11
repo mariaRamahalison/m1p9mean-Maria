@@ -13,10 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 export class FormulaireInscriptionComponent implements OnInit {
 
   actionButton="INSCRIPTION";
-  resultMessage="";
+  result={message:"",type:"succes"};
   @Input() action ="CLIENT";
   @Input() user : any;
-  result={error:false, succes:false, message:""};
   listRestau: any = [];
   defaultRestau : any;
   nom="";
@@ -70,7 +69,7 @@ export class FormulaireInscriptionComponent implements OnInit {
           this.listRestau.push(element);
         });
         if(this.listRestau.length==0){
-          this.resultMessage="Pas de restaurant disponible";
+          this.result={message:"Pas de restaurant disponible",type:"erreur"};
           // this.alertModal?.open("Error","Pas de restaurant disponible");
         }else{
           this.defaultRestau=this.listRestau[0];
@@ -125,33 +124,32 @@ export class FormulaireInscriptionComponent implements OnInit {
       user=this.asignProfil(user);
       this.userService.inscription(user).subscribe(
         res=>{
-          this.resultMessage="Inscription faite avec succès";
+          this.result={message:"Inscription faite avec succès",type:"succes"};
         },
         error=>{
-          this.resultMessage=error.error.message;
+          this.result={message:error.error.message,type:"erreur"};
         }
       )
     }else{
-      this.resultMessage="Veuillez remplir les champs";
+      this.result={message:"Veuillez remplir les champs",type:"erreur"};
     }
   }
 
   update() {
-    console.log(this.inscriptionForm.value);
     if (this.inscriptionForm.valid) {
       let user=this.inscriptionForm.value;
       user._id=this.user._id;
       user=this.asignProfil(user);
       this.userService.update(user).subscribe(
         res=>{
-          this.resultMessage="Modification faite avec succès";
+          this.result={message:"Modification faite avec succès",type:"succes"};
         },
         error=>{
-          this.resultMessage=error.error.message;
+          this.result={message:error.error.message,type:"erreur"};
         }
       )
     }else{
-      this.resultMessage="Veuillez remplir les champs";
+      this.result={message:"Veuillez remplier les champs",type:"erreur"};
     }
   }
 

@@ -89,6 +89,20 @@ export class ListeRestauAdminComponent implements OnInit {
     )
   }
 
+  status(item, value){
+    item.status=value;
+    this.restauService.update(item).subscribe(
+      res => {
+        let index = this.listRestau.findIndex((x:any) => x._id === res.data._id);
+        this.listRestau[index]=res.data;
+        this.alertModal?.open("Succès","Restaurant modifier avec succès");
+      },
+      error => {
+        this.alertModal?.open("Error",error.error.message);
+      }
+    )
+  }
+
 
   getData() {
     this.restauService.filtre(this.filtre).subscribe(

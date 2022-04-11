@@ -1,8 +1,8 @@
 
 <form [formGroup]="inscriptionForm" name="bookinkform" class="row booking-form">
     <!-- Form Input -->
-    <div class="col-lg-12 erreur">
-        {{resultMessage}}
+    <div class="col-lg-12r"   [ngClass]="result.type">
+        {{result.message}}
     </div>
     <div class="col-lg-12 align-items-center">
         <div class="erreur" *ngIf="verifyForm('nom')"> 
@@ -20,11 +20,6 @@
       </div>
     </div>
     <div class="col-lg-12 align-items-center">
-        <div class="erreur" *ngIf="verifyForm('prenom')"> 
-            Un prenom est requis
-        </div> 
-    </div>
-    <div class="col-lg-12 align-items-center">
       <div class="row align-items-center">
           <div class="col-lg-4">
               <span>Prenom :</span>
@@ -32,13 +27,11 @@
           <div class="col-lg-8">
               <input type="text" name="prenom" formControlName="prenom" class="form-control name" placeholder=" " required> 
           </div>
+          <div class="erreur" *ngIf="verifyForm('prenom')"> 
+            Un prenom est requis
+        </div> 
       </div>
   </div>
-  <div class="col-lg-12 align-items-center">
-    <div class="erreur" *ngIf="verifyForm('mdp')"> 
-        Un mot de passe est requis
-    </div> 
-</div>
     <div *ngIf="action=='CLIENT'" class="col-lg-12">
       <div class="row align-items-center">
           <div class="col-lg-4">
@@ -47,13 +40,11 @@
           <div class="col-lg-8">
               <input type="text" name="mdp" formControlName="mdp" class="form-control name"  required> 
           </div>
+          <div class="erreur" *ngIf="verifyForm('mdp')"> 
+            Un mot de passe est requis
+        </div> 
       </div> 
   </div>
-  <div class="col-lg-12 align-items-center">
-    <div class="erreur" *ngIf="verifyForm('adresse')"> 
-        Une adresse est requise
-    </div> 
-</div>
     <div class="col-lg-12 align-items-center">
       <div class="row align-items-center">
           <div class="col-lg-4">
@@ -62,14 +53,11 @@
           <div class="col-lg-8">
               <input type="text" name="adresse" formControlName="adresse" class="form-control name"  required> 
           </div>
-          
+          <div class="erreur" *ngIf="verifyForm('adresse')"> 
+            Une adresse est requise
+        </div> 
       </div>
   </div>
-  <div class="col-lg-12 align-items-center">
-    <div class="erreur" *ngIf="verifyForm('numero')"> 
-        Un numero est requis
-    </div> 
-</div>
   <div class="col-lg-12 align-items-center">
       <div class="row align-items-center">
           <div class="col-lg-4">
@@ -78,14 +66,11 @@
           <div class="col-lg-8">
               <input type="text" name="numero" formControlName="numero" class="form-control name"  required>  
           </div>
+          <div class="erreur" *ngIf="verifyForm('numero')"> 
+            Un numero est requis
+        </div> 
       </div>
   </div>
-
-  <div class="col-lg-12 align-items-center">
-    <div class="erreur" *ngIf="verifyForm('email')"> 
-        Un email est requis
-    </div> 
-</div>
   <div class="col-lg-12 align-items-center">
       <div class="row align-items-center">
           <div class="col-lg-4">
@@ -94,20 +79,18 @@
           <div class="col-lg-8">
               <input type="email" name="email" formControlName="email" class="form-control name"  required> 
           </div>
+          <div class="erreur" *ngIf="verifyForm('email')"> 
+            Un email est requis
+        </div> 
       </div>
   </div>
-  <div class="col-lg-12 align-items-center">
-    <div class="erreur" *ngIf="verifyForm('restaurant')"> 
-        Un restaurant est requis
-    </div> 
-</div>   
   <div class="col-lg-12" *ngIf="action==='RESTAURANT'">
       <div class="row align-items-center">
           <div class="col-lg-4">
               <span>Restaurant:</span>
           </div>
           <div class="col-lg-8">
-              <select class="selectRestau"   formControlName="restaurant" >
+              <select class="selectRestau"  class="form-control" formControlName="restaurant" >
                   <option [ngValue]="null" disabled hidden></option>
                   <option class="form-control" *ngFor="let restau of listRestau" [ngValue]="restau" >{{restau.nom}}</option>
               </select>
@@ -116,11 +99,6 @@
   </div> 
   <div class="col-lg-12">
     <div class="row align-items-center">
-        <div class="col-lg-4">
-            <div class="erreur" *ngIf="verifyForm('restaurant')"> 
-                Un restaurant est requis
-            </div> 
-        </div>            
         <!-- Form Button -->
         <div class="col-lg-8 mt-10 marge">  
             <p *ngIf="actionButton==='INSCRIPTION'" class="btn-main buttonInscription "  (click)="inscription()">Valider</p>

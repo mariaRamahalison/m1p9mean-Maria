@@ -85,7 +85,9 @@
                                   </td>
                                   <td data-label="Delete" class="td-trash"><i class="far fa-trash-alt"></i></td>
                                   <td data-label="Delete" class="td-trash" (click)="updateModal(plat)"><i  class="fa fa-pencil"></i></td>
-                            </tr>
+                                  <td *ngIf="plat.status==='VALIDE'" data-label="Delete" class="td-trash" ><i class="fa fa-fw" aria-hidden="true" title="Desactiver" (click)="status(plat, 'INVALIDE')"></i></td>
+                                  <td *ngIf="plat.status==='INVALIDE'" data-label="Delete" class="td-trash" ><i class="fa fa-fw" aria-hidden="true" title="Activer" (click)="status(plat, 'VALIDE')"></i></td>            
+                                </tr>
                         </tbody>
 
                     </table>

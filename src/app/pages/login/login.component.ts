@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertModalComponent } from 'src/app/common/alert-modal/alert-modal.component';
 import { COMMANDE, LOCALSTORAGE } from 'src/app/common/constante';
 import { StorageService } from 'src/app/services/Helper/storage.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,16 +13,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    private userService: UserService,
-    private storageService : StorageService,
-    private route: Router) { }
-
+  @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
   loginForm: FormGroup = new FormGroup({
     email : new FormControl('', [Validators.required ] ),
     mdp : new FormControl('', [Validators.required]),
   });
   user:any;
+
+  constructor(
+    private userService: UserService,
+    private storageService : StorageService,
+    private route: Router) { }
+
 
   ngOnInit(): void {
   }
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.loginForm.value).subscribe(
         res=>{
           LOCALSTORAGE.token=res.data.token,
+          console.log(LOCALSTORAGE.token);
           LOCALSTORAGE.user=res.data.user;
           this.user=res.data.user;
           this.storageService.setlocalStorage("USER_DETAIL",LOCALSTORAGE);
@@ -53,7 +57,10 @@ export class LoginComponent implements OnInit {
           }
         },
         error=>{
+          this.alertModal.open("Error", error.error.message);
         });
+    }else{
+      this.alertModal.open("Error", "Veuillez remplir les champs ");
     }
   }
 

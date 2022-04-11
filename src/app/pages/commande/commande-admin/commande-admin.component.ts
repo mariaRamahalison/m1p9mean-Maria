@@ -25,7 +25,7 @@ export class CommandeAdminComponent implements OnInit {
 
   verifyCompte(){
     this.user=(this.storageService.getLocalStorage("USER_DETAIL")).user;
-    if(this.user.profil.restaurant._id){
+    if(this.user?.profil?.restaurant?._id){
       this.filtre.restau=this.user.profil.restaurant._id;
     }
   }
@@ -33,6 +33,11 @@ export class CommandeAdminComponent implements OnInit {
   filtrer(){
     this.getData();
   }
+
+  verifyLivreur(commande){
+    return (commande?.admin?.livreur?.nom);
+  }
+
   getData() {
     this.verifyCompte();
     this.commandeService.filtrer(this.filtre)

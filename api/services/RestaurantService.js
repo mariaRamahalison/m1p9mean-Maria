@@ -51,9 +51,14 @@ async function findAll() {
 }
 
 async function findBy(item) {
-    return await find({
+    query={
+        // status
         $or: [{ nom: { $regex: new RegExp(item.filtre, "i")  } }, { tags: { $regex: new RegExp(item.filtre, "i") } }]
-    });
+    }
+    if (item.status) {
+        query.status = item.status;
+    }
+    return await find(query);
 }
 
 

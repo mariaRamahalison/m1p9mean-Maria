@@ -12,7 +12,7 @@ import { RestaurantService } from 'src/app/services/restaurant.service';
 export class ListeRestaurantComponent implements OnInit {
 
   @ViewChild(AlertModalComponent) alertModal: AlertModalComponent | undefined;
-  filtre = { filtre: "" };
+  filtre = { filtre: "" , status:"VALIDE" };
   listRestau: any = [];
   constructor(
     private restauService: RestaurantService,
@@ -44,7 +44,7 @@ export class ListeRestaurantComponent implements OnInit {
   
   chooseRestau(item : any) {
     let restau= { idRestau: item._id, nom: item.nom };
-    this.router.navigate(['/plats'], { queryParams: restau });
+    this.router.navigate(['/app/plats'], { queryParams: restau });
   }
 
   

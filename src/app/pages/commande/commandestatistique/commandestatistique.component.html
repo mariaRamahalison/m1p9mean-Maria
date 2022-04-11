@@ -25,7 +25,7 @@
                             <h5>Trier par :</h5>		
                         </div> -->
                         <div class="col-md-3 col-lg-3 btnAction">	
-                            <select  class="form-control" [(ngModel)]="filtre">
+                            <select  class="form-control" [(ngModel)]="filtre.value">
                                 <option value="" >Tous</option>
                                 <option value="day" >Jour</option>
                                 <option value="month" >Mois</option>
@@ -59,13 +59,13 @@
                     <table id="myTable">
                         <thead>
                             <tr> 
-                                  <th scope="col">Restaurant</th>
-                                  <th scope="col">Plat</th>
-                                  <th scope="col">Bénéfice</th>
-                                  <th scope="col">Bénéfice</th>
-                                  <th scope="col">Jour</th>
-                                  <th scope="col">Mois</th>
-                                  <th scope="col">Année</th>
+                                  <th *ngIf="isAdminEkaly()" scope="col">Restaurant</th>
+                                  <th *ngIf="isFiltre('plat')" scope="col">Plat</th>
+                                  <th scope="col">Bénéfice restaurany</th>
+                                  <th *ngIf="isAdminEkaly()"  scope="col">Bénéfice Ekaly</th>
+                                  <th *ngIf="isFiltre('day')" scope="col">Jour</th>
+                                  <th *ngIf="isFiltre('month')" scope="col">Mois</th>
+                                  <th *ngIf="isFiltre('year')" scope="col">Année</th>
                                   <th scope="col">quantite</th>
                                   <th scope="col">Montant </th>
                                   <th scope="col">Depense</th>

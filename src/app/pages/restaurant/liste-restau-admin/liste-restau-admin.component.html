@@ -75,7 +75,7 @@
                                   <td data-label="Product" class="product-name">
 
                                       <!-- Preview -->
-                                    <div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview"></div>
+                                    <!-- <div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview"></div> -->
 
                                     <!-- Description -->
                                     <div class="cart-product-desc">
@@ -88,8 +88,10 @@
                                   <td data-label="Price" class="product-price"><span>{{restau.adresse}}</span></td>
                                   <td data-label="Quantity" class="product-qty">
                                       {{restau.status}}
-                                  </td><td data-label="Delete" class="td-trash"><i class="far fa-trash-alt"></i></td>
-                                  <td data-label="Delete" class="td-trash" (click)="updateModal(restau)"><i  class="fa fa-pencil"></i></td>
+                                  </td>
+                                  <td *ngIf="restau.status==='VALIDE'" data-label="Delete" class="td-trash" ><i class="fa fa-fw" aria-hidden="true" title="Desactiver" (click)="status(restau, 'INVALIDE')"></i></td>
+                                  <td *ngIf="restau.status==='INVALIDE'" data-label="Delete" class="td-trash" ><i class="fa fa-fw" aria-hidden="true" title="Activer" (click)="status(restau, 'VALIDE')"></i></td>
+                                  <td data-label="Delete" class="td-trash" ><i  class="fa fa-pencil" title="Modifier" (click)="updateModal(restau)"></i></td>
                            </tr>
                         </tbody>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StorageService } from 'src/app/services/Helper/storage.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class MenuComponent implements OnInit {
 
   user : any;
   constructor(
-    private storageService : StorageService
+    private storageService : StorageService,
+    private route : Router
   ) { }
 
   ngOnInit(): void {
@@ -19,5 +21,10 @@ export class MenuComponent implements OnInit {
 
   isRole(value){
     return this.user.profil.nom===value;
+  }
+
+  deconnecter(){
+    localStorage.clear();
+    this.route.navigate(['app/login']);
   }
 }

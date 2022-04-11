@@ -35,18 +35,27 @@ async function filtre(item) {
         .catch(error => { throw error })
 }
 
+function criteria(item, plat) {
+    let value = false;
+    if (plat.nom.match(new RegExp(item.filtre, "i")) || plat.composition.match(new RegExp(item.filtre, "i"))) {
+        value = true;
+        console.log("ok");
+        if (item.status) {
+            console.log(plat.status);
+            if (plat.status != item.status) value = false;
+        }
+    }
+    return value;
+}
+
 function filtreLike(data, item) {
     let result = [];
     data.forEach(element => {
         let value = element.plats.filter(plat => {
-            if (plat.nom.match(new RegExp(item.filtre, "i")) || plat.composition.match(new RegExp(item.filtre, "i"))) return true;
+            return criteria(item, plat);
         });
-        if (value.length > 0) Array.prototype.push.apply(result,value);
-        // Array.prototype.push.apply(a,arr2); 
+        if (value.length > 0) Array.prototype.push.apply(result, value);
     });
-    // result.forEach(element=>{
-    //     erged[item[prop]], item)
-    // })
     return result;
 }
 
@@ -60,11 +69,6 @@ async function disable(item) {
     item.status = "INVALIDE";
     return await update(item);
 }
-
-// async function findRestau(id) {
-//     return await RestaurantModel.fin("_id:").exec();
-// }
-
 
 module.exports = {
     create,

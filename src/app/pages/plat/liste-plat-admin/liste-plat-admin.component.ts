@@ -18,7 +18,7 @@ export class ListePlatAdminComponent implements OnInit {
     private platService: PlatService,
     private storageService : StorageService) { }
 
-  filtre = { filtre: "", _id: ""};
+  filtre = { filtre: "", _id: "" ,status:"VALIDE"};
   listPlat: any = [];
   platForm!: FormGroup;
   action = "CREER";
@@ -105,13 +105,29 @@ export class ListePlatAdminComponent implements OnInit {
       res => {
         this.listPlat = [];
         res.data.forEach((element: any) => {
-          element.plats.forEach((element: any) => {
+          // element.plats.forEach((element: any) => {
             this.listPlat.push(element);
-          });
+          // });
         });
       },
       error => {
 
+      }
+    )
+  }
+
+  status(item,value) {
+   item.status=value;
+    this.platService.update(item).subscribe(
+      res => {
+        this.alertModal?.open("Succès", "Plat modifié avec succès");
+        this.listPlat = [];
+        res.data.plats.forEach((element: any) => {
+          this.listPlat.push(element);
+        });
+      },
+      error => {
+        this.alertModal?.open("Error", error.error.message);
       }
     )
   }

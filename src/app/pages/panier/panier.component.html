@@ -51,21 +51,21 @@
                                       <td data-label="Product" class="product-name">
 
                                           <!-- Preview -->
-                                        <div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview"></div>
+                                        <!-- <div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview"></div> -->
 
                                         <!-- Description -->
                                         <div class="cart-product-desc">
-                                              <h5 class="h5-sm">{{detail.plat.nom}}</h5>
+                                              <h6 class="h6-sm">{{detail.plat.nom}}</h6>
                                               <p class="p-sm">{{detail.plat.composition}}</p>
                                           </div>
 
                                       </td>
 
-                                      <td data-label="Price" class="product-price"><h5 class="h5-md">{{detail.plat.prixVente}}</h5></td>
+                                      <td data-label="Price" class="product-price"><h6 class="h6-md">{{detail.plat.prixVente}}Ar</h6></td>
                                       <td data-label="Quantity" class="product-qty">
                                           <input class="qty" type="number" min="1" max="20" (click)="onQuantite(detail)" [(ngModel)]="detail.quantite">
                                       </td>
-                                      <td data-label="Total" class="product-price-total"><h5 class="h5-md">{{detail.montant}}</h5></td>
+                                      <td data-label="Total" class="product-price-total"><h6 class="h6-md">{{detail.montant}}Ar</h6></td>
                                       <td data-label="Delete" class="td-trash"><i (click)="annulerCommande(detail)" class="far fa-trash-alt"></i></td>
 
                                 </tr>

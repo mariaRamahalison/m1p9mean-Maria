@@ -12,7 +12,7 @@ async function encryptPassword(password) {
 function generateToken(user) {
     return jwt.sign(
         { user: user },
-        "token",
+        'secret',
         {
             expiresIn: "24h",
         }
@@ -21,9 +21,10 @@ function generateToken(user) {
 
 function decode(token) {
     try {
-        var decoded = jwt.verify(token, process.env.TOKEN_KEY);
+        var decoded = jwt.verify(token, 'secret');
         return decoded;
     } catch (err) {
+        console.log(err);
         throw new Error("token invalid");
     }
 }

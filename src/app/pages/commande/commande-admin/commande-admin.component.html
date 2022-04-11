@@ -88,12 +88,17 @@
                                     </td>
                                     <td data-label="Price" class="product-price">{{commande.adresse}}</td>
                                     <td data-label="Price" class="product-price">{{commande.fraisLivraison}}</td>
-                                    <td *ngIf="commande.livreur.nom" data-label="Product" class="product-name">
+                                    <td *ngIf="verifyLivreur(commande); else noLivreur" data-label="Product" class="product-name">
                                         <div class="cart-product-desc">
                                           <b>{{commande.livreur.nom}}</b>
                                               <p class="p-sm">{{commande.livreur.email}}</p>
                                           </div>
                                       </td>
+                                      <ng-template #noLivreur >
+                                        <td  data-label="Product" class="product-name">
+                                            Pas de livreur
+                                           </td>
+                                      </ng-template>
                                 </tr>
                         </tbody>
 
